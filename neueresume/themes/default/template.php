@@ -88,7 +88,7 @@
 		$jobsListItemFormat = ' 
 		
 		<article itemscope itemtype="http://schema.org/CreativeWork">
-			<h2 itemprop="name">{{Title}}</h2>
+			<h2 itemprop="name">{{Title}}</h2><a class="link button"href="{{Link}}"><a class="fancybox image button" href="{{ImagePath}}"></a>
 			<h3 itemprop="genre">{{SubTitle}}</h3>
 			<h4>{{Date}}</h4>
 			<p itemprop="description">{{Text}}</p>

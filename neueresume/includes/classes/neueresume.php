@@ -152,13 +152,17 @@ class NeueResume
 							'{{Title}}',
 							'{{SubTitle}}',
 							'{{Date}}',
-							'{{Text}}'
+							'{{Text}}',
+							'{{Link}}',
+							'{{ImagePath}}'
 						);
 						$replace = array(
 							(string)$item->title,
 							(string)$item->subtitle,
 							(string)$item->date,
-							(string)$item->text
+							(string)$item->text,
+							(string)$item->link,
+							(string)$item->image
 						);
 
 						$temp_section_content .= str_replace($search, $replace, $jobsListItemFormat);
@@ -195,7 +199,7 @@ class NeueResume
 
 			}
 		} else {
-			exit('Failed to open test.xml.');
+			return false;
 		}
 	}
 
@@ -213,12 +217,6 @@ class NeueResume
 		//GZIP Compression
 		ini_set('zlib.output_compression', $this->settings['advanced']['use_gzip_compression']);
 		ini_set('zlib.output_compression_level', $this->settings['advanced']['gzip_compression_level']);
-
-
-
-		//Load Blacklists/Whitelists
-		$this->loadLists();
-
 
 		require('neueresume/themes/' . $this->settings['general']['theme'] . '/template.php');
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resume>
 	<section title="Objective">
-		<text>I seek the opportunity to advance my abilities as a designer and developer by contributing to meaningful projects.</text>
+		<text>I seek the opportunity to further my experience as a designer and developer by contributing to meaningful projects.</text>
 	</section>
 		<section title="Skills" type="list">
 		<item>Adobe Photoshop CS6</item>
@@ -16,33 +16,38 @@
 	</section>
 	<section title="Experience" type="jobs">
 		<!--
-<item>
-      <title>CAHS in the Parking Lot Shirt</title>
-      <subtitle>Print Designer</subtitle>
-      <date>2013</date>
-      <text>Designed a front-only shirt for the Communications Arts annual spring picnic fundraiser.</text>
-    </item>
-    <item>
-      <title>Communications Arts Class of 2014 Shirt</title>
-      <subtitle>Print Designer</subtitle>
-      <date>2013</date>
-      <text>Designed a front and back shirt sold as a class fundraiser. Over 100 copies were sold.</text>
-    </item>
-    <item>
-      <title>CAHS Photography Club Shirt</title>
-      <subtitle>Print Designer</subtitle>
-      <date>2012</date>
-      <text>Designed a front and back shirt sold by the school photography club as a fundraiser.</text>
-    </item>
-    <item>
-      <title>NISD Magnet Fair Poster</title>
-      <subtitle>Print Designer</subtitle>
-      <date>2012</date>
-      <text>Designed, for the secord time, a distinctive poster to promote the district's magnet fair. Selected in a competitive process by the principals of the schools involved. Tabloid size copies were distributed to every middle school in the district and an additional letter sized flier was mailed to every 8th grader in the district.</text>
-    </item>
+		<item>
+	      <title>CAHS in the Parking Lot Shirt</title>
+	      <image>images/cahsparkinglot.png</image>
+	      <subtitle>Print Designer</subtitle>
+	      <date>2013</date>
+	      <text>Designed a front-only shirt for the Communications Arts annual spring picnic fundraiser.</text>
+	    </item>
+	    <item>
+	      <title>Communications Arts Class of 2014 Shirt</title>
+	      <image>images/classshirt.png</image>
+	      <subtitle>Print Designer</subtitle>
+	      <date>2013</date>
+	      <text>Designed a front and back shirt sold as a class fundraiser. Over 100 copies were sold.</text>
+	    </item>
+	    <item>
+	      <title>CAHS Photography Club Shirt</title>
+	      <image>images/photoclubshirt.png</image>
+	      <subtitle>Print Designer</subtitle>
+	      <date>2012</date>
+	      <text>Designed a front and back shirt sold by the school photography club as a fundraiser.</text>
+	    </item>
+	    <item>
+	      <title>NISD Magnet Fair Poster</title>
+	      <image>images/magnetfair2012.png</image>
+	      <subtitle>Print Designer</subtitle>
+	      <date>2012</date>
+	      <text>Designed, for the secord time, a distinctive poster to promote the district's magnet fair. Selected in a competitive process by the principals of the schools involved. Tabloid size copies were distributed to every middle school in the district and an additional letter sized flier was mailed to every 8th grader in the district.</text>
+	    </item>
 -->
 		<item>
 			<title>Communications Arts Freshman Class Shirt</title>
+			<image>images/freshmanshirt.png</image>
 			<subtitle>Print Design</subtitle>
 			<date>2011</date>
 			<text>
@@ -52,24 +57,28 @@
 		</item>
 		<item>
 			<title>NISD Magnet Fair Poster</title>
+			<image>images/magnetfair2011.png</image>
 			<subtitle>Print Design</subtitle>
 			<date>2011</date>
 			<text>Designed a distinctive poster to promote the district's magnet fair. Selected in a competitive process by the principals of the schools involved. Tabloid size copies were distributed to every middle school in the district and an additional letter sized flier was mailed to every 8th grader in the district.</text>
 		</item>
 		<item>
 			<title>Alex Walker Studios</title>
+			<link>http://alexwalkerstudios.com/</link>
 			<subtitle>Web Design/Development</subtitle>
 			<date>2010-</date>
 			<text>Responsible for designing, developing and deploying a modern web portfolio using a custom CMS and cutting edge HTML5 APIs and CSS3 effects.</text>
 		</item>
 		<item>
 			<title>Ines Walker</title>
+			<link>http://ineswalker.com/</link>
 			<subtitle>Identity and Web Design</subtitle>
 			<date>2010-</date>
 			<text>Responsible for creation of unifying identity across print and web media and supplying supporting imagery -including illustrations and photos.</text>
 		</item>
 		<item>
 			<title>South Texas Division, USFA</title>
+			<link>http://southtexasdivision.org/</link>
 			<subtitle>Web Design</subtitle>
 			<date>2009-</date>
 			<text>Responsible for designing a mobile aware web presence and new identity, managing web hosting, representing the organization on social media platforms, updating and developing content, migrating large quantities of legacy information seamlessly into a new interface.</text>
@@ -141,10 +150,10 @@
 	</section>
 	<section title="Education" type="detail-list">
 		<!-- <item>
-    <title>University of Texas at Austin</title>
-    <subtitle>Computer Science Major</subtitle>
-    <text>Courses:</text>
-</item> -->
+			<title>University of Texas at Austin</title>
+			<subtitle>Computer Science Major</subtitle>
+    		<text>Courses:</text>
+    	</item> -->
 		<item>
 			<title>Communications Arts High School</title>
 			<subtitle>Distinguished Diploma, June 2014</subtitle>

@@ -81,8 +81,8 @@ body {
 }
 
 section {
-	margin-bottom: 2em;
-	padding-bottom: 2em;
+	margin-bottom: 28px;
+	padding-bottom: 28px;
 	border-bottom: 1px solid #ccc;
 	overflow: auto;
 }
@@ -100,8 +100,12 @@ section:last-of-type	{
 	width: 12.3%;
 	float: left;
 }
+footer {
+	margin-bottom: 28px;
+}
 
-/*--- = Header */
+/* = Header
+-------------------------------------------------------------- */
 header {
 	margin: 2.5em 0 3em 0;
 	padding-bottom: 1.5em;
@@ -117,9 +121,7 @@ header {
 	float: left;
 	vertical-align: top;
 }
-footer {
-	margin-bottom: 2em;
-}
+
 .contact-info	{
 	/*width: 87px ;*/
 	display: inline-block;
@@ -262,7 +264,8 @@ h3#print input:hover {
 }
 
 
-/*--- = Jobs */
+/* = Detail List
+-------------------------------------------------------------- */
 article {
 	position: relative;
 	margin-bottom: 1em;
@@ -271,6 +274,11 @@ article {
 }
 article h2	{
 	font-weight: 500;
+	float: left;
+	display: inline-block;
+}
+article h3	{
+	clear: both;
 }
 article h4 {
 	position: absolute;
@@ -297,7 +305,8 @@ sup::after	{
 	content: '}';
 }
 
-/*--- = Skill List*/
+/* = List
+-------------------------------------------------------------- */
 .talent {
 	-webkit-column-count: 3;
 	-moz-column-count: 3;
@@ -315,20 +324,51 @@ ul.talent li:nth-child(3n){
 	margin-bottom: -3px;
 }
 
-/*--- = Education */
+
+/* = Education
+-------------------------------------------------------------- */
+
 .education	{
 	margin: 0 0 14px 0;
 }
 .education a	{
 	display: block;
 }
+
+
+/* = Jobs
+-------------------------------------------------------------- */
+
+.button	{
+	background-size: contain;
+	height: 24px;
+	width: 24px;
+	float: left;
+	display: inline-block;
+	margin-left: 20px;
+}
+.button[href='']	{
+	display: none;
+}
+.link{
+	background-image: url(media/link.svg);
+}
+.image{
+	background-image: url(media/image.svg);
+}
+/* = Print
+-------------------------------------------------------------- */
+
 @media print {
-	
+	a {
+		text-decoration: none !important;
+	}
 	article	{
 		page-break-inside: avoid;
 	}
 	h3#print,
-	#social	{
+	#social,
+	.button	{
 		display: none;
 	}
 	#container	{
