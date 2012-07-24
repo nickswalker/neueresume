@@ -1,0 +1,352 @@
+/* =Reset
+-------------------------------------------------------------- */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	font-size: 14px;
+	line-height: 1.23;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+p	{
+		-webkit-hyphens: auto;
+	hyphens:auto;
+}
+
+/*--- = Font weights  */
+/*
+100
+400
+500
+600
+*/
+/* = Core Structure
+-------------------------------------------------------------- */
+body {
+	color: #444;
+	width: 950px;
+	margin: auto;
+	text-shadow: 0px 1px 0px rgba(255,255,255,01);
+/*background: -webkit-linear-gradient(top, rgba(245, 245, 245, .6), rgba(245, 245, 245, .6)), #FF0000 url(../../media/textures/Paper-6.png);*/
+	background-color: #FFF;
+}
+
+#container {
+	padding: 10px 80px 14px 80px;
+	margin: 80px auto;
+	border-top: 8px solid #666;
+	border-bottom: 2px solid #666;
+	background: #f5f5f5 url(media/paper.png);
+	box-shadow: 0px 0px 3px rgba(0,0,0,.4);
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+}
+
+section {
+	margin-bottom: 2em;
+	padding-bottom: 2em;
+	border-bottom: 1px solid #ccc;
+	overflow: auto;
+}
+article:last-of-type,
+section:last-of-type	{
+	padding-bottom: 0;
+	border-bottom: none;
+}
+.right {
+	float: right;
+	width: 80.2%;
+}
+
+.left {
+	width: 12.3%;
+	float: left;
+}
+
+/*--- = Header */
+header {
+	margin: 2.5em 0 3em 0;
+	padding-bottom: 1.5em;
+	border-bottom: 1px solid #ccc;
+	overflow: auto;
+	}
+.right-plate	{
+	float: right;
+	vertical-align: top;
+	width: 250px;
+}
+.plate	{
+	float: left;
+	vertical-align: top;
+}
+footer {
+	margin-bottom: 2em;
+}
+.contact-info	{
+	/*width: 87px ;*/
+	display: inline-block;
+	vertical-align: top;
+	float: left;
+}
+#social	{
+	list-style: none;
+	width: 30px;
+	display: inline-block;
+	float: right;
+	vertical-align: top;
+}
+#social li	{
+	display: inline-block;
+	overflow: auto;
+	border: 0;
+	margin: 4px 0 0 0;
+}
+#social li a	{
+	width: 30px;
+	height: 30px;
+	overflow: auto;
+	display: block;
+	opacity: .2;
+	-webkit-transition: .2s opacity ease;
+	-ms-transition: .2s opacity ease;
+	-o-transition: .2s opacity ease;
+	-moz-transition: .2s opacity ease;
+	transition: .2s opacity ease;
+}
+#social li a:hover	{
+	opacity: 1;
+}
+#facebook	{
+	background-image: url(media/facebook.png);
+}
+#social #twitter	{
+	background-image: url(media/twitter.png);
+	height: 23px;
+}
+#plus	{
+	background-image: url(media/plus.png);
+}
+/*--- = Footer */
+
+footer {
+	padding: 12px 0 10px 0;
+	font-size: 12px;
+	border-top: 1px solid #ccc;
+	text-align: center;
+}
+
+footer p {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+/* = Core Typography
+-------------------------------------------------------------- */
+
+h1,h2,h3,h4 {
+	color: #333;
+	line-height: 1.25;
+}
+h2 {
+	font-size: 21px;
+}
+.left h2	{
+	font-weight: 500;
+	font-style: italic;
+}
+h3,h4 {
+	font-size: 16px;
+}
+
+a {
+	color: #222;
+}
+
+a:hover {
+	text-decoration: none;
+}
+li {
+	line-height: 24px;
+	border-bottom: 1px solid #ccc;
+}
+p.enlarge {
+	font-size: 21px;
+	line-height: 24px;
+}
+
+/*--- = Header */
+
+header h1 {
+	font-size: 48px;
+	font-weight: 600;
+	line-height: 1;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+header h2 {
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-weight: 400;
+}
+header h4	{
+	font-size: 12px;
+}
+h3#print	{
+	display: block;
+	overflow: auto;
+}
+h3#print input{
+	float: left;
+	background: #666;
+	color: white;
+	line-height: 1;
+	padding: 6px 60px;
+	text-decoration: none;
+	border: 0px;
+	cursor: pointer;
+	font-size: inherit;
+	text-align: center;
+}
+h3#print input:hover {
+	background: #333;
+}
+/*--- = Objective */
+.mission	{
+	font-size: 21px;
+	text-align: justify;
+	font-weight: 400;
+}
+.mission::before	{
+	content: '"';
+}
+.mission::after	{
+	content: '"';
+}
+
+
+/*--- = Jobs */
+article {
+	position: relative;
+	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #ccc;
+}
+article h2	{
+	font-weight: 500;
+}
+article h4 {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-weight: 200;
+}
+
+article p {
+	margin: 10px 0 10px 0;
+}
+
+sup {
+	font-size: 14px;
+	vertical-align: super;
+	font-style: italic;
+	color: #666;
+	padding-left: 10px;
+}
+sup::before	{
+	content: '{';
+}
+sup::after	{
+	content: '}';
+}
+
+/*--- = Skill List*/
+.talent {
+	-webkit-column-count: 3;
+	-moz-column-count: 3;
+	-webkit-column-gap: 20px;
+	-moz-column-gap: 20px;
+	column-gap: 20px;
+}
+.talent li	{
+	height: 25px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+ul.talent li:nth-child(3n){
+	border: none;
+	margin-bottom: -3px;
+}
+
+/*--- = Education */
+.education	{
+	margin: 0 0 14px 0;
+}
+.education a	{
+	display: block;
+}
+@media print {
+	
+	article	{
+		page-break-inside: avoid;
+	}
+	h3#print,
+	#social	{
+		display: none;
+	}
+	#container	{
+		margin: 0 0 0 0;
+		border: none;
+		box-shadow: none;
+	}
+	.talent li {
+		display: inline-block;
+		width: 26%;
+		margin-right: 3%;
+	}
+	ul.talent li:nth-child(3n){
+		border-bottom: 1px solid #CCC;
+		margin-bottom: 0px;
+		}
+	ul.talent li:nth-child(n+7):nth-child(-n+9){
+		border: none;
+		margin-bottom: -3px;
+	}
+}

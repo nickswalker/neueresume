@@ -1,0 +1,3 @@
+<?php
+/* Specific Theme Settings */
+?>

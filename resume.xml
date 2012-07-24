@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resume>
+	<section title="Objective">
+		<text>I seek the opportunity to advance my abilities as a designer and developer by contributing to meaningful projects.</text>
+	</section>
+		<section title="Skills" type="list">
+		<item>Adobe Photoshop CS6</item>
+		<item>Adobe Illustrator CS6</item>
+		<item>Adobe After Effects CS6</item>
+		<item>HTML5</item>
+		<item>CSS3</item>
+		<item>PHP</item>
+		<item>Javascipt</item>
+		<item>jQuery</item>
+		<item>Sass</item>
+	</section>
+	<section title="Experience" type="jobs">
+		<!--
+<item>
+      <title>CAHS in the Parking Lot Shirt</title>
+      <subtitle>Print Designer</subtitle>
+      <date>2013</date>
+      <text>Designed a front-only shirt for the Communications Arts annual spring picnic fundraiser.</text>
+    </item>
+    <item>
+      <title>Communications Arts Class of 2014 Shirt</title>
+      <subtitle>Print Designer</subtitle>
+      <date>2013</date>
+      <text>Designed a front and back shirt sold as a class fundraiser. Over 100 copies were sold.</text>
+    </item>
+    <item>
+      <title>CAHS Photography Club Shirt</title>
+      <subtitle>Print Designer</subtitle>
+      <date>2012</date>
+      <text>Designed a front and back shirt sold by the school photography club as a fundraiser.</text>
+    </item>
+    <item>
+      <title>NISD Magnet Fair Poster</title>
+      <subtitle>Print Designer</subtitle>
+      <date>2012</date>
+      <text>Designed, for the secord time, a distinctive poster to promote the district's magnet fair. Selected in a competitive process by the principals of the schools involved. Tabloid size copies were distributed to every middle school in the district and an additional letter sized flier was mailed to every 8th grader in the district.</text>
+    </item>
+-->
+		<item>
+			<title>Communications Arts Freshman Class Shirt</title>
+			<subtitle>Print Design</subtitle>
+			<date>2011</date>
+			<text>
+				Designed a front and back shirt given to incoming students as a welcome gift.
+				<!-- The shirt was so well recieved that a 100 shirt run was done the the next year as a fundraiser.-->
+			</text>
+		</item>
+		<item>
+			<title>NISD Magnet Fair Poster</title>
+			<subtitle>Print Design</subtitle>
+			<date>2011</date>
+			<text>Designed a distinctive poster to promote the district's magnet fair. Selected in a competitive process by the principals of the schools involved. Tabloid size copies were distributed to every middle school in the district and an additional letter sized flier was mailed to every 8th grader in the district.</text>
+		</item>
+		<item>
+			<title>Alex Walker Studios</title>
+			<subtitle>Web Design/Development</subtitle>
+			<date>2010-</date>
+			<text>Responsible for designing, developing and deploying a modern web portfolio using a custom CMS and cutting edge HTML5 APIs and CSS3 effects.</text>
+		</item>
+		<item>
+			<title>Ines Walker</title>
+			<subtitle>Identity and Web Design</subtitle>
+			<date>2010-</date>
+			<text>Responsible for creation of unifying identity across print and web media and supplying supporting imagery -including illustrations and photos.</text>
+		</item>
+		<item>
+			<title>South Texas Division, USFA</title>
+			<subtitle>Web Design</subtitle>
+			<date>2009-</date>
+			<text>Responsible for designing a mobile aware web presence and new identity, managing web hosting, representing the organization on social media platforms, updating and developing content, migrating large quantities of legacy information seamlessly into a new interface.</text>
+		</item>
+	</section>
+	<section title="Activities" type="detail-list">
+		<item>
+			<title>Photography Club</title>
+			<subtitle>Webmaster</subtitle>
+			<date>2011-</date>
+			<text>Responsible for designing and updating the club's webpage and maintaining it's Facebook presence.</text>
+		</item>
+		<item>
+			<title>Varsity Orchestra</title>
+			<subtitle>Librarian</subtitle>
+			<date>2010-</date>
+			<text>Responsible for organizing and managing the Taft Orchestra music collection, distributing and tracking large quantities of sheet music and theory books.</text>
+		</item>
+		<item>
+			<title>Orchestra</title>
+			<subtitle>Violinist</subtitle>
+			<date>2006-</date>
+			<text>Started through 5th grade strings program, continued into high school.</text>
+		</item>
+		<item>
+			<title>Fencing</title>
+			<subtitle>Foilist</subtitle>
+			<date>2006-</date>
+			<text>Consistent regional champion, multiple national appearances.</text>
+		</item>
+	</section>
+	<section title="Recognition" type="detail-list">
+		<item>
+			<title>Outstanding Sophomore Boy</title>
+			<subtitle>Communications Arts Sophomore Faculty</subtitle>
+			<date>2011-2012</date>
+			<text />
+		</item>
+		<item>
+			<title>Achievement in English II P-AP</title>
+			<subtitle>Communications Arts Sophomore Faculty</subtitle>
+			<date>2011-2012</date>
+			<text />
+		</item>
+		<item>
+			<title>Premio de Oro - Nivel 1</title>
+			<subtitle>National Spanish Exam</subtitle>
+			<date>2011-2012</date>
+			<text>97th Percentile of all tested</text>
+		</item>
+		<item>
+			<title>Best Communicator</title>
+			<subtitle>Communications Arts Freshman Faculty</subtitle>
+			<date>2010-2011</date>
+			<text />
+		</item>
+		<item>
+			<title>Achievement in Principals of Information Technology</title>
+			<subtitle>Communications Arts Freshman Faculty</subtitle>
+			<date>2010-2011</date>
+			<text />
+		</item>
+		<item>
+			<title>Achievement in Geometry P-AP</title>
+			<subtitle>Communications Arts Freshman Faculty</subtitle>
+			<date>2010-2011</date>
+			<text />
+		</item>
+	</section>
+	<section title="Education" type="detail-list">
+		<!-- <item>
+    <title>University of Texas at Austin</title>
+    <subtitle>Computer Science Major</subtitle>
+    <text>Courses:</text>
+</item> -->
+		<item>
+			<title>Communications Arts High School</title>
+			<subtitle>Distinguished Diploma, June 2014</subtitle>
+			<text>
+				Advanced Placement Courses: World History AP
+				<!-- , US History AP, English III AP, English IV AP, Calculus BC AP, Physics AP -->
+				Other Advanced Courses: World Geography Honors, Pre-AP Biology, Pre-AP English, Pre-AP English II, Pre-AP Geometry, Pre-AP Algebra II,
+				<!-- Pre-AP Dual Credit Pre-Calculus, -->
+				Pre-AP Chemistry, Pre-AP Spanish I
+				<!-- , Pre-AP Spanish II, Pre-AP Spanish III  -->
+			</text>
+		</item>
+	</section>
+</resume>
