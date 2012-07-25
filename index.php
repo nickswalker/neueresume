@@ -3,7 +3,7 @@
 NeueResume 1.0
 */
 
-require('neueresume/includes/classes/neueresume.php');
+require('neueresume/includes/neueresume.php');
 
 $neuegal = new NeueResume;
 

@@ -235,19 +235,22 @@ h3#print	{
 	display: block;
 	overflow: auto;
 }
-h3#print input{
-	float: left;
+button{
 	background: #666;
 	color: white;
 	line-height: 1;
-	padding: 6px 60px;
+	padding: 7px 12px;
 	text-decoration: none;
 	border: 0px;
 	cursor: pointer;
 	font-size: inherit;
-	text-align: center;
+	text-align: left;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: inherit;
+	font-weight: 500;
 }
-h3#print input:hover {
+button:hover {
 	background: #333;
 }
 /*--- = Objective */
@@ -356,6 +359,39 @@ ul.talent li:nth-child(3n){
 .image{
 	background-image: url(media/image.svg);
 }
+
+/* = Contact Form
+-------------------------------------------------------------- */
+
+input	{
+	padding: 7px 5px;
+	width: 307px;
+	margin-right: 10px;
+}
+input:last-of-type	{
+	margin-right: 0;
+}
+input,textarea	{
+	display: inline-block;
+/* 	box-shadow: inset 0px 0px 10px black; */
+	border: 1px solid #CCC;
+	font-size: 16px;
+	font-family: inherit;
+	margin-bottom: 10px;
+		padding: 7px 5px;
+	box-sizing: border-box;
+}
+textarea	{
+	width: 100%;
+}
+.contact button	{
+		height: 34px;
+	
+}
+
+
+
+
 /* = Print
 -------------------------------------------------------------- */
 
@@ -368,7 +404,8 @@ ul.talent li:nth-child(3n){
 	}
 	h3#print,
 	#social,
-	.button	{
+	.button,
+	.contact	{
 		display: none;
 	}
 	#container	{
