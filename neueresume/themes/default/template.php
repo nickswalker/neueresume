@@ -6,7 +6,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<title><?php echo $this->settings['bio']['name'];?> | <?php echo $this->settings['bio']['email'];?></title>
 	<meta name="keywords" content="" />
-	<meta name="description" content="Nick Walker's resume" />
+	<meta name="description" content="<?php echo $this->settings['bio']['name'];?>'s resume" />
 	<link rel="stylesheet"  href="<?php $this->showThemeURL();?>resume.css" media="all" />
 
 
@@ -31,7 +31,64 @@
 		});
 	});
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+	var $returnMessage = $('.return-message').hide(),
+	$form = $('form');
+	$('.submit').on('click', function(event){
+		sendEmail();
+		event.preventDefault();	
+	});
+   function handleReturn(returnedObject){
+   		$('form').fadeOut(200, function(){
+   			   
+   		switch(returnedObject){
+			case 'sent':
+			$returnMessage.append('<span class="icon-ok"></span>');
+				break;
+			case 'failed':
+				$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:<?php echo $this->settings['bio']['email'];?>">Try using your client?</a></span>');
+				break;
+			default : 
+				$returnMessage.append('<span class="icon-remove"></span><span class="message">'+returnedObject+'</span>');
+			break;
+	   }
+	   	$returnMessage.fadeIn(200);
+   		});
+   		
+   		$('.return-message').on('click', function(){
+   			
+   			$(this).fadeOut(200, function(){
+   			$(this).children().remove();
+   				   		$('form').fadeIn(200);
+   			});
 
+   		});
+
+
+
+   }
+	function sendEmail(){
+		var emailid = $('form .email').val(),
+		tempname = $('form .name').val(),
+		tempmessage = $('form .message').val(),
+	    data = { email: emailid,
+	    		name : tempname,
+	    		message : tempmessage
+	     };
+		$.ajax({
+	           type: "POST",
+	           url: "index.php",
+	           data: data,
+	           dataType: "text",
+	           success: function(returnedObject){
+		           console.log(returnedObject);
+		           handleReturn(returnedObject);
+	           }
+	    });    
+   }
+});
+</script>
 </head>
 <body>
 	<div id="container">
@@ -49,7 +106,15 @@
 						<h4 itemprop="address" class="address"><?php echo $this->settings['bio']['street_address'];?></h4>
 					</div>
 					<ul id="social">
-						<li><a href="http://www.facebook.com/nick.walker" data-tip="Facebook" id="facebook"></a></li>
+						<?php if( $this->settings['bio']['social']['linked_in_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['linked_in_url'].'" class="icon-linkedin"></a></li>';}
+						if( $this->settings['bio']['social']['github_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['github_url'].'" class="icon-github"></a></li>';}
+						if( $this->settings['bio']['social']['vimeo_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['vimeo_url'].'" class="icon-vimeo"></a></li>';}
+						if( $this->settings['bio']['social']['tumblr_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['tumblr_url'].'" class="icon-tumblr"></a></li>';}
+						if( $this->settings['bio']['social']['google_plus_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['google_plus_url'].'" class="icon-googleplus"></a></li>';}
+						if( $this->settings['bio']['social']['facebook_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['facebook_url'].'" class="icon-facebook"></a></li>';}
+						if( $this->settings['bio']['social']['twitter_url'] != '' ){ echo '<li><a href="'.$this->settings['bio']['social']['twitter_url'].'" class="icon-twitter"></a></li>';}
+						
+						?>
 					</ul>
 				</div>
 		</header>
@@ -88,7 +153,7 @@ $detailListItemFormat = '
 $jobsListItemFormat = '
 
 		<article itemscope itemtype="http://schema.org/CreativeWork">
-			<h2 itemprop="name">{{Title}}</h2><a class="link button"href="{{Link}}"><a class="fancybox image button" href="{{ImagePath}}"></a>
+			<h2 itemprop="name">{{Title}}</h2><a class="icon-link .btn button"href="{{Link}}"><a class="icon-picture .btn fancybox button" href="{{ImagePath}}"></a>
 			<h3 itemprop="genre">{{SubTitle}}</h3>
 			<h4>{{Date}}</h4>
 			<p itemprop="description">{{Text}}</p>

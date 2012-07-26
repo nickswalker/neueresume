@@ -1,3 +1,4 @@
+@import url('font-awesome.css');
 /* =Reset
 -------------------------------------------------------------- */
 
@@ -50,7 +51,13 @@ p	{
 		-webkit-hyphens: auto;
 	hyphens:auto;
 }
-
+a	{
+				-webkit-transition: .2s ;
+	-ms-transition: .2s;
+	-o-transition: .2s;
+	-moz-transition: .2s;
+	transition: .2s;
+}
 /*--- = Font weights  */
 /*
 100
@@ -86,10 +93,12 @@ section {
 	border-bottom: 1px solid #ccc;
 	overflow: auto;
 }
-article:last-of-type,
-section:last-of-type	{
+article:last-of-type	{
 	padding-bottom: 0;
 	border-bottom: none;
+}
+section:last-of-type{
+	margin-bottom: 0;
 }
 .right {
 	float: right;
@@ -103,6 +112,7 @@ section:last-of-type	{
 footer {
 	margin-bottom: 28px;
 }
+
 
 /* = Header
 -------------------------------------------------------------- */
@@ -130,48 +140,31 @@ header {
 }
 #social	{
 	list-style: none;
-	width: 30px;
 	display: inline-block;
 	float: right;
 	vertical-align: top;
+	overflow: visible;
 }
 #social li	{
-	display: inline-block;
-	overflow: auto;
+	display: block;
 	border: 0;
-	margin: 4px 0 0 0;
+	margin-bottom: 4px;
 }
 #social li a	{
-	width: 30px;
-	height: 30px;
-	overflow: auto;
 	display: block;
-	opacity: .2;
-	-webkit-transition: .2s opacity ease;
-	-ms-transition: .2s opacity ease;
-	-o-transition: .2s opacity ease;
-	-moz-transition: .2s opacity ease;
-	transition: .2s opacity ease;
 }
-#social li a:hover	{
-	opacity: 1;
+#social [class^="icon-"]:before	{
+	font-size: 24px;
+	color: rgba(100,100,100,.8);
+	text-shadow: 1px 2px 2px #f4f4f4, 0 0 0 #000, 1px 2px 2px #f4f4f4;
 }
-#facebook	{
-	background-image: url(media/facebook.png);
-}
-#social #twitter	{
-	background-image: url(media/twitter.png);
-	height: 23px;
-}
-#plus	{
-	background-image: url(media/plus.png);
+#social [class^="icon-"]:hover:before	{
 }
 /*--- = Footer */
 
 footer {
 	padding: 12px 0 10px 0;
 	font-size: 12px;
-	border-top: 1px solid #ccc;
 	text-align: center;
 }
 
@@ -205,13 +198,25 @@ a {
 a:hover {
 	text-decoration: none;
 }
-li {
-	line-height: 24px;
-	border-bottom: 1px solid #ccc;
-}
+
 p.enlarge {
 	font-size: 21px;
 	line-height: 24px;
+}
+
+[class^="icon-"]:before	{
+	text-decoration: none;
+}
+li [class^="icon-"], li [class*=" icon-"] {
+	width: auto;
+}
+.button	{
+	background-size: contain;
+	height: 24px;
+	width: 24px;
+	float: left;
+	display: inline-block;
+	margin-left: 20px;
 }
 
 /*--- = Header */
@@ -327,6 +332,10 @@ ul.talent li:nth-child(3n){
 	margin-bottom: -3px;
 }
 
+.list li {
+	line-height: 24px;
+	border-bottom: 1px solid #ccc;
+}
 
 /* = Education
 -------------------------------------------------------------- */
@@ -342,22 +351,12 @@ ul.talent li:nth-child(3n){
 /* = Jobs
 -------------------------------------------------------------- */
 
-.button	{
-	background-size: contain;
-	height: 24px;
-	width: 24px;
-	float: left;
-	display: inline-block;
-	margin-left: 20px;
+.jobs [href='']	{
+	display: none !important;
 }
-.button[href='']	{
-	display: none;
-}
-.link{
-	background-image: url(media/link.svg);
-}
-.image{
-	background-image: url(media/image.svg);
+
+.jobs [class^="icon-"]:before	{
+	color: #CCC;
 }
 
 /* = Contact Form
@@ -388,7 +387,16 @@ textarea	{
 		height: 34px;
 	
 }
-
+.return-message	{
+	font-size: 16px;
+}
+.contact [class^="icon-"]	{
+	float: left;
+	margin-right: 20px;
+}
+.contact [class^="icon-"]:before	{
+	font-size: 36px;
+}
 
 
 

@@ -88,16 +88,18 @@ class NeueResume
 			'{{ContactForm}}'
 		);
 		$replace = array(
-			'<form id="contact-form" action="index.php" method="post">
+			'
+			<div class="return-message" href="#contact"></div>
+			<form id="contact-form" action="index.php" method="post">
 
-				<input class="textbox" type="text" name="name" value="" placeholder="Your Name" required />
+				<input class="name" type="text" name="name" value="" placeholder="Your Name" required />
 
-				<input class="textbox" type="email" name="email" value="" placeholder="Your Email" required />
+				<input class="email" type="email" name="email" value="" placeholder="Your Email" required />
 
 
-				<textarea class="textbox" name="message" placeholder="Your Message" required ></textarea>
+				<textarea class="message" name="message" placeholder="Your Message" required ></textarea>
 
-				<button type="submit" name="submit" value="Send Message" >Send</button>
+				<button class="submit" type="submit" name="submit" value="Send Message" >Send</button>
 		</form>'
 		);
 
@@ -212,64 +214,64 @@ class NeueResume
 	}
 	function handleContactForm()	{
 		$post = (!empty($_POST)) ? true : false;
-if($post)
-{
-	$name = stripslashes($_POST['name']);
-	$email = trim($_POST['email']);
-	$message = stripslashes($_POST['message']);
-	$error = '';
-
-	// Check name
-
-	if(!$name)
-	{
-		$error .= 'Please enter your name.<br />';
-	}
-
-	// Check email
-
-	if(!$email)
-	{
-		$error .= 'Please enter an e-mail address.<br />';
-	}
-
-
-	// Check agains bot habit
-
-	if ($name && $email && $name==$email) {
-		$error .= 'Name and email cannot be the same.<br />';
-	}
-	
-
-	// Check message (length)
-
-	if(!$message || strlen($message) < 10)
-	{
-		$error .= "Please enter your message. It should have at least 10 characters.<br />";
-	}
-
-
-	if(!$error)
-	{
-		$mail = mail($this->settings['bio']['email'], $subject, $message,
-		 "From: ".$name." <".$email.">\r\n"
-		."Reply-To: ".$email."\r\n"
-		."X-Mailer: PHP/" . phpversion());
-
-		if($mail)
+		if($post)
 		{
-			echo 'Sent';
+			$name = stripslashes($_POST['name']);
+			$email = trim($_POST['email']);
+			$message = stripslashes($_POST['message']);	
+			// Check name
+		
+			if(!$name)
+			{
+				$error .= 'Please enter your name.<br />';
+			}
+		
+			// Check email
+		
+			if(!$email)
+			{
+				$error .= 'Please enter an e-mail address.<br />';
+			}
+		
+		
+			// Check agains bot habit
+		
+			if ($name && $email && $name==$email) {
+				$error .= 'Name and email cannot be the same.<br />';
+			}
+			
+		
+			// Check message (length)
+		
+			if(!$message || strlen($message) < 10)
+			{
+				$error .= "Please enter your message. It should have at least 10 characters.<br />";
+			}
+		
+			if(!$error)
+			{
+				$headers = "From: ".$name." <".$email.">\r\n"
+				."Reply-To: ".$email."\r\n"
+				."X-Mailer: PHP/" . phpversion();
+				$headers = 'From: webmaster@example.com' . "\r\n" .
+		    'Reply-To: webmaster@example.com' . "\r\n" .
+		    'X-Mailer: PHP/' . phpversion();
+				$mail = mail($this->settings['bio']['email'], 'Contact Form Email', 'Test message', $headers);
+		
+				if($mail)
+				{
+					echo 'sent';
+				}
+				else	{
+					echo 'failed';
+				}
+		
+			}
+			else
+			{
+				echo $error;
+			}
 		}
-		else	{
-			echo 'Failed';
-		}
-
-	}
-	else
-	{
-		echo $error;
-	}
-}
 	}
 
 
