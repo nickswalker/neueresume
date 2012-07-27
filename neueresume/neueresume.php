@@ -36,7 +36,19 @@ class NeueResume
 			return true;
 		}
 	}
+	function loadVars()	{
+		if (file_exists('resume.xml')) {
+			$resume_xml = simplexml_load_file('resume.xml');
+		foreach ($resume_xml->bio->children() as $name=>$value){
+			$this->vars['bio'][$name] = (string)$value;
+		}
+		$this->vars['bio']['social'] =  $resume_xml->bio->social;
+		foreach($resume_xml->bio->social->children() as $name=>$value){
+				$this->vars['bio']['social'][$name] = (string)$value;
+			}
 
+		}
+	}
 
 	function outputSettingsArray() {
 		echo '<pre>';
@@ -68,8 +80,6 @@ class NeueResume
 
 	}
 
-
-
 	function showThemeURL($format = 0)
 	{
 		//0 = Output url
@@ -81,7 +91,6 @@ class NeueResume
 				return 'neueresume/themes/' . $this->settings['general']['theme'] . '/';
 			}
 	}
-
 
 	function showContactForm($contactFormFormat)	{
 		$search = array(
@@ -109,7 +118,7 @@ class NeueResume
 	function showResume($sectionFormat, $textFormat, $jobsListItemFormat, $listItemFormat, $detailListItemFormat){
 		if (file_exists('resume.xml')) {
 			$resume_xml = simplexml_load_file('resume.xml');
-			print_r($xml);
+
 
 			/* For each <character> node, we echo a separate <name>. */
 			foreach ($resume_xml->section as $section) {
@@ -284,6 +293,7 @@ class NeueResume
 			$this->handleContactForm();
 			return true;
 		}
+		$this->loadVars();
 		//Debug Mode
 		if ($this->settings['advanced']['debug_mode'] == true)
 		{

@@ -3,7 +3,7 @@
 NeueResume 1.0
 */
 
-require('neueresume/includes/neueresume.php');
+require('neueresume/neueresume.php');
 
 $neuegal = new NeueResume;
 
@@ -13,4 +13,5 @@ $neuegal->startTimer();
 
 $neuegal->loadSettings();
 $neuegal->initialize();
+
 ?>
