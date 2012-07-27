@@ -262,10 +262,7 @@ class NeueResume
 				$headers = "From: ".$name." <".$email.">\r\n"
 				."Reply-To: ".$email."\r\n"
 				."X-Mailer: PHP/" . phpversion();
-				$headers = 'From: webmaster@example.com' . "\r\n" .
-		    'Reply-To: webmaster@example.com' . "\r\n" .
-		    'X-Mailer: PHP/' . phpversion();
-				$mail = mail($this->settings['bio']['email'], 'Contact Form Email', 'Test message', $headers);
+				$mail = mail($this->vars['bio']['email'], 'Contact Form Email', $message, $headers);
 		
 				if($mail)
 				{
@@ -288,12 +285,12 @@ class NeueResume
 
 	function initialize()
 	{
+		$this->loadVars();
 		if (isset($_POST['name']))
 		{
 			$this->handleContactForm();
 			return true;
 		}
-		$this->loadVars();
 		//Debug Mode
 		if ($this->settings['advanced']['debug_mode'] == true)
 		{

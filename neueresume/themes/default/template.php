@@ -44,7 +44,7 @@ function handleReturn(returnedObject){
 
 		switch(returnedObject){
 			case 'sent':
-			$returnMessage.append('<span class="icon-ok"></span>');
+			$returnMessage.append('<span class="icon-ok"></span><span class="message">Message sent. I\'ll be in touch.</span>');
 				break;
 			case 'failed':
 				$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:<?php echo $this->vars['bio']['email'];?>">Try using your client?</a></span>');
@@ -97,7 +97,7 @@ function handleReturn(returnedObject){
 				<div class="right-plate">
 					<div class="contact-info">
 						<h3 id="print"><button onClick="window.print()">Print</button></h3>
-						<h3><a itemprop="url" href="<?php echo $this->vars['bio']['site'];?>"><?php echo $this->vars['bio']['site'];?></a></h3>
+						<h3><a itemprop="url" href="http://<?php echo $this->vars['bio']['site'];?>"><?php echo $this->vars['bio']['site'];?></a></h3>
 						<h3><a itemprop="email" href="mailto:<?php echo $this->vars['bio']['email'];?>"><?php echo $this->vars['bio']['email'];?></a></h3>
 						<h3 itemprop="telephone"><?php echo $this->vars['bio']['phone-number'];?></h3>
 						<h4 itemprop="address" class="address"><?php echo $this->vars['bio']['street-address'];?></h4>
