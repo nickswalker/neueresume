@@ -6,7 +6,7 @@
 	<meta name="format-detection" content="telephone=no">
 	<title><?php echo $this->vars['bio']['name'];?> | <?php echo $this->vars['bio']['email'];?></title>
 	<meta name="keywords" content="" />
-	<meta name="description" content="<?php echo $this->vars['bio']['name'];?>'s resume" />
+	<meta name="description" content="<?php echo $this->vars['bio']['name'];?>'s resume." />
 	<link rel="stylesheet"  href="<?php $this->showThemeURL();?>resume.css" media="all" />
 
 
@@ -26,8 +26,8 @@
 			loop: false,
 			closeBtn: false,
 			helpers : {
-            	title : null
-            }
+   	title : null
+}
 		});
 	});
 </script>
@@ -37,56 +37,53 @@ $(document).ready(function() {
 	$form = $('form');
 	$('.submit').on('click', function(event){
 		sendEmail();
-		event.preventDefault();	
+		event.preventDefault();
 	});
-   function handleReturn(returnedObject){
-   		$('form').fadeOut(200, function(){
-   			   
-   		switch(returnedObject){
+function handleReturn(returnedObject){
+		$form.fadeOut(200, function(){
+
+		switch(returnedObject){
 			case 'sent':
 			$returnMessage.append('<span class="icon-ok"></span>');
 				break;
 			case 'failed':
 				$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:<?php echo $this->vars['bio']['email'];?>">Try using your client?</a></span>');
 				break;
-			default : 
+			default :
 				$returnMessage.append('<span class="icon-remove"></span><span class="message">'+returnedObject+'</span>');
 			break;
-	   }
-	   	$returnMessage.fadeIn(200);
-   		});
-   		
-   		$('.return-message').on('click', function(){
-   			
-   			$(this).fadeOut(200, function(){
-   			$(this).children().remove();
-   				   		$('form').fadeIn(200);
-   			});
+	}
+		$returnMessage.fadeIn(200);
+		});
 
-   		});
+		$('.return-message').on('click', function(){
 
+			$(this).fadeOut(200, function(){
+			$(this).children().remove();
+						$form.fadeIn(200);
+			});
 
-
-   }
+		});
+}
 	function sendEmail(){
-		var emailid = $('form .email').val(),
-		tempname = $('form .name').val(),
-		tempmessage = $('form .message').val(),
-	    data = { email: emailid,
-	    		name : tempname,
-	    		message : tempmessage
-	     };
+		var emailid = $form.children('.email').val(),
+		tempname = $form.children('.name').val(),
+		tempmessage = $form.children('.message').val(),
+	 data = { email: emailid,
+			name : tempname,
+			message : tempmessage
+	};
 		$.ajax({
-	           type: "POST",
-	           url: "index.php",
-	           data: data,
-	           dataType: "text",
-	           success: function(returnedObject){
-		           console.log(returnedObject);
-		           handleReturn(returnedObject);
-	           }
-	    });    
-   }
+	type: "POST",
+	url: "index.php",
+	data: data,
+	dataType: "text",
+	success: function(returnedObject){
+		console.log(returnedObject);
+		handleReturn(returnedObject);
+	}
+	});
+}
 });
 </script>
 </head>
@@ -106,16 +103,16 @@ $(document).ready(function() {
 						<h4 itemprop="address" class="address"><?php echo $this->vars['bio']['street-address'];?></h4>
 					</div>
 					<ul id="social">
-						<?php 
-						if( $this->vars['bio']['social']['linkedin'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['linkedin'].'" class="icon-linkedin"></a></li>';}
-						if( $this->vars['bio']['social']['github'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['github'].'" class="icon-github"></a></li>';}
-						if( $this->vars['bio']['social']['vimeo'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['vimeo'].'" class="icon-vimeo"></a></li>';}
-						if( $this->vars['bio']['social']['tumblr'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['tumblr'].'" class="icon-tumblr"></a></li>';}
-						if( $this->vars['bio']['social']['google-plus'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['google-plus'].'" class="icon-googleplus"></a></li>';}
-						if( $this->vars['bio']['social']['facebook'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['facebook'].'" class="icon-facebook"></a></li>';}
-						if( $this->vars['bio']['social']['twitter'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['twitter'].'" class="icon-twitter"></a></li>';}
-						
-						?>
+						<?php
+							if( $this->vars['bio']['social']['linkedin'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['linkedin'].'" class="icon-linkedin"></a></li>';}
+							if( $this->vars['bio']['social']['github'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['github'].'" class="icon-github"></a></li>';}
+							if( $this->vars['bio']['social']['vimeo'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['vimeo'].'" class="icon-vimeo"></a></li>';}
+							if( $this->vars['bio']['social']['tumblr'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['tumblr'].'" class="icon-tumblr"></a></li>';}
+							if( $this->vars['bio']['social']['google-plus'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['google-plus'].'" class="icon-googleplus"></a></li>';}
+							if( $this->vars['bio']['social']['facebook'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['facebook'].'" class="icon-facebook"></a></li>';}
+							if( $this->vars['bio']['social']['twitter'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['twitter'].'" class="icon-twitter"></a></li>';}
+
+?>
 					</ul>
 				</div>
 		</header>
