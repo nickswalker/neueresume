@@ -8,8 +8,7 @@
 		<phone-number>555.782.5412</phone-number>
 		<street-address></street-address>
 		<social>
-			<linkedin>Linethoauns ateohus</linkedin>
-			<github>GIthusntaoh isntoaeh iu</github>
+			<github>https://github.com/nickswalker/neueresume</github>
 	<!--
 			<vimeo></vimeo>
 			<tumblr></tumblr>
@@ -20,7 +19,7 @@
 		</social>
 	</bio>
 	<section title="Objective">
-		<text>I seek the opportunity to further my experience as a developer by contributing to meaningful projects.</text>
+		<text>I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.</text>
 	</section>
 	<section title="Skills" type="list">
 		<item>Adobe Photoshop CS6</item>
@@ -35,55 +34,47 @@
 	</section>
 	<section title="Experience" type="jobs">
 		<item>
-			<title>Communications Arts Freshman Class Shirt</title>
-			<image>images/freshmanshirt.png</image>
-			<subtitle>Print Design</subtitle>
-			<date>2011</date>
+			<title>Facebook</title>
+			<subtitle>Senior Marketing Engineer</subtitle>
+			<date>2012</date>
 			<text>
-				Designed a front and back shirt given to incoming students as a welcome gift.
+				Designed motivating user incentives through the popular 'carrot and stick' framework.
 			</text>
 		</item>
 		<item>
-			<title>NISD Magnet Fair Poster</title>
-			<image>images/magnetfair2011.png</image>
-			<subtitle>Print Design</subtitle>
-			<date>2011</date>
-			<text>Designed a distinctive poster to promote the district's magnet fair. Selected in a competitive process by the principals of the schools involved. Tabloid size copies were distributed to every middle school in the district and an additional letter sized flier was mailed to every 8th grader in the district.</text>
+			<title>Threadless</title>
+			<image>images/shirt.png</image>
+			<subtitle>Print Designer</subtitle>
+			<date>2011-2012</date>
+			<text>Designed inexpensive, synergistic T-shirt reconcepulizations to morph niche markets into main street main stays. </text>
 		</item>
 		<item>
-			<title>Ines Walker</title>
-			<link>http://ineswalker.com/</link>
+			<title>Mary Ann Doe</title>
+			<link>http://nickswalker.github.com/neuegal/</link>
 			<subtitle>Identity and Web Design</subtitle>
 			<date>2010-</date>
 			<text>Responsible for creation of unifying identity across print and web media and supplying supporting imagery -including illustrations and photos.</text>
 		</item>
-		<item>
-			<title>South Texas Division, USFA</title>
-			<link>http://southtexasdivision.org/</link>
-			<subtitle>Web Design</subtitle>
-			<date>2009-</date>
-			<text>Responsible for designing a mobile aware web presence and new identity, managing web hosting, representing the organization on social media platforms, updating and developing content, migrating large quantities of legacy information seamlessly into a new interface.</text>
-		</item>
+		<item type="html">&lt;article class=&quot;see-more&quot;&gt;&lt;a href=&quot;http://nickswalker.github.com/neueresume/&quot;&gt;See a gallery of work examples...&lt;/a&gt;&lt;/article&gt;</item>
 	</section>
 	<section title="Recognition" type="detail-list">
 		<item>
-			<title>Outstanding Sophomore Boy</title>
-			<subtitle>Communications Arts Sophomore Faculty</subtitle>
-			<date>2011-2012</date>
+			<title>Outstanding Synergizer</title>
+			<subtitle>Board for the Greater Synergy</subtitle>
+			<date>2012</date>
 			<text />
 		</item>
 		<item>
-			<title>Achievement in English II P-AP</title>
-			<subtitle>Communications Arts Sophomore Faculty</subtitle>
-			<date>2011-2012</date>
+			<title>Achievement in Double Speak</title>
+			<subtitle>Commission for California Culture</subtitle>
+			<date>2011</date>
 			<text />
 		</item>
 	</section>
 	<section title="Education" type="detail-list">
 		<item>
 			<title>University of Texas at Austin</title>
-			<subtitle>Computer Science Major</subtitle>
-    		<text>Courses:</text>
+			<subtitle>Computer Science Major - 4.0 GPA</subtitle>
     	</item>
 	</section>
 </resume>

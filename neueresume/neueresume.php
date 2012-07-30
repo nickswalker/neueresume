@@ -126,11 +126,10 @@ class NeueResume
 				$section_info['title'] = (string)$section['title'];
 				$section_info['type'] = (string)$section['type'];
 
-
+				$temp_section_content ='';
 
 				switch($section_info['type']) {
 				case 'detail-list':
-					$temp_section_content ='';
 					foreach ($section->item as $item) {
 
 						$search = array(
@@ -145,7 +144,6 @@ class NeueResume
 							(string)$item->date,
 							(string)$item->text
 						);
-
 						$temp_section_content .= str_replace($search, $replace, $detailListItemFormat);
 					};
 					break;
@@ -164,9 +162,7 @@ class NeueResume
 					$temp_section_content .='</ul>';
 					break;
 				case 'jobs':
-					$temp_section_content ='';
 					foreach ($section->item as $item) {
-
 						$search = array(
 							'{{Title}}',
 							'{{SubTitle}}',
@@ -183,8 +179,13 @@ class NeueResume
 							(string)$item->link,
 							(string)$item->image
 						);
-
-						$temp_section_content .= str_replace($search, $replace, $jobsListItemFormat);
+						if((string)$item['type']=='html'){
+							$temp_section_content .= (string)$item;
+						}
+						else{
+							$temp_section_content .= str_replace($search, $replace, $jobsListItemFormat);
+						}
+						
 					};
 					break;
 				default :
