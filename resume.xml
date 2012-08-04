@@ -18,8 +18,7 @@
 	-->
 		</social>
 	</bio>
-	<section title="Objective">
-		<text>I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.</text>
+	<section title="objective">I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.
 	</section>
 	<section title="Skills" type="list">
 		<item>Adobe Photoshop CS6</item>
@@ -32,13 +31,12 @@
 		<item>jQuery</item>
 		<item>Sass</item>
 	</section>
-	<section title="Experience" type="jobs">
+	<section title="experience" type="jobs">
 		<item>
 			<title>Facebook</title>
 			<subtitle>Senior Marketing Engineer</subtitle>
 			<date>2012</date>
-			<text>
-				Designed motivating user incentives through the popular 'carrot and stick' framework.
+			<text>Designed motivating user incentives through the popular 'carrot and stick' framework.
 			</text>
 		</item>
 		<item>
@@ -57,7 +55,7 @@
 		</item>
 		<item type="html">&lt;article class=&quot;see-more&quot;&gt;&lt;a href=&quot;http://nickswalker.github.com/neueresume/&quot;&gt;See a gallery of work examples...&lt;/a&gt;&lt;/article&gt;</item>
 	</section>
-	<section title="Recognition" type="detail-list">
+	<section title="recognition" type="detail-list">
 		<item>
 			<title>Outstanding Synergizer</title>
 			<subtitle>Board for the Greater Synergy</subtitle>
@@ -71,7 +69,7 @@
 			<text />
 		</item>
 	</section>
-	<section title="Education" type="detail-list">
+	<section title="education" type="detail-list">
 		<item>
 			<title>University of Texas at Austin</title>
 			<subtitle>Computer Science Major - 4.0 GPA</subtitle>

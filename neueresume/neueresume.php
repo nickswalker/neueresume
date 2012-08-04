@@ -115,7 +115,7 @@ class NeueResume
 		echo str_replace($search, $replace, $contactFormFormat);
 		
 	}
-	function showResume($sectionFormat, $textFormat, $jobsListItemFormat, $listItemFormat, $detailListItemFormat){
+	function showResume($sectionFormat, $jobsListItemFormat, $listItemFormat, $detailListItemFormat){
 		if (file_exists('resume.xml')) {
 			$resume_xml = simplexml_load_file('resume.xml');
 
@@ -189,16 +189,7 @@ class NeueResume
 					};
 					break;
 				default :
-					foreach ($section->text as $text) {
-						$search = array(
-							'{{Text}}'
-						);
-						$replace = array(
-							(string)$text
-						);
-
-						$temp_section_content .= str_replace($search, $replace, $textFormat);
-					};
+						$temp_section_content .= (string)$section;
 					break;
 
 				}

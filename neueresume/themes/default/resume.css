@@ -52,19 +52,13 @@ p	{
 	hyphens:auto;
 }
 a	{
-				-webkit-transition: .2s ;
+	-webkit-transition: .2s ;
 	-ms-transition: .2s;
 	-o-transition: .2s;
 	-moz-transition: .2s;
 	transition: .2s;
 }
-/*--- = Font weights  */
-/*
-100
-400
-500
-600
-*/
+
 /* = Core Structure
 -------------------------------------------------------------- */
 body {
@@ -72,7 +66,6 @@ body {
 	width: 950px;
 	margin: auto;
 	text-shadow: 0px 1px 0px rgba(255,255,255,01);
-/*background: -webkit-linear-gradient(top, rgba(245, 245, 245, .6), rgba(245, 245, 245, .6)), #FF0000 url(../../media/textures/Paper-6.png);*/
 	background-color: #FFF;
 }
 
@@ -81,7 +74,7 @@ body {
 	margin: 80px auto;
 	border-top: 8px solid #666;
 	border-bottom: 2px solid #666;
-	background: #f5f5f5 url(media/paper.png);
+	background: #f5f5f5 url('media/paper.png');
 	box-shadow: 0px 0px 3px rgba(0,0,0,.4);
 	border-left: 1px solid #DDD;
 	border-right: 1px solid #DDD;
@@ -186,6 +179,7 @@ h2 {
 .left h2	{
 	font-weight: 500;
 	font-style: italic;
+	text-transform: capitalize;
 }
 h3,h4 {
 	font-size: 16px;
@@ -257,18 +251,6 @@ button{
 }
 button:hover {
 	background: #333;
-}
-/*--- = Objective */
-.mission	{
-	font-size: 21px;
-	text-align: justify;
-	font-weight: 400;
-}
-.mission::before	{
-	content: '"';
-}
-.mission::after	{
-	content: '"';
 }
 
 
@@ -359,6 +341,23 @@ ul.talent li:nth-child(3n){
 	color: #CCC;
 }
 
+
+/* = Objective
+-------------------------------------------------------------- */
+
+.objective .right	{
+	font-size: 21px;
+	text-align: justify;
+	font-weight: 400;
+	quotes: ;
+}
+.objective .right::before	{
+	content: '"';
+}
+.objective .right::after	{
+	content: '"';
+}
+
 /* = Contact Form
 -------------------------------------------------------------- */
 
@@ -372,13 +371,14 @@ input:last-of-type	{
 }
 input,textarea	{
 	display: inline-block;
-/* 	box-shadow: inset 0px 0px 10px black; */
-	border: 1px solid #CCC;
+ 	box-shadow: inset 0px 0px 6px rgba(0,0,0,.1); 
+	border: 1px solid #777;
 	font-size: 16px;
 	font-family: inherit;
 	margin-bottom: 10px;
 		padding: 7px 5px;
 	box-sizing: border-box;
+	background-color: #FFF;
 }
 textarea	{
 	width: 100%;

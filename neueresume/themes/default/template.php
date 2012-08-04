@@ -108,7 +108,7 @@ function handleReturn(returnedObject){
 							if( $this->vars['bio']['social']['github'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['github'].'" class="icon-github"></a></li>';}
 							if( $this->vars['bio']['social']['vimeo'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['vimeo'].'" class="icon-vimeo"></a></li>';}
 							if( $this->vars['bio']['social']['tumblr'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['tumblr'].'" class="icon-tumblr"></a></li>';}
-							if( $this->vars['bio']['social']['google-plus'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['google-plus'].'" class="icon-googleplus"></a></li>';}
+							if( $this->vars['bio']['social']['google-plus'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['google-plus'].'" class="icon-google-plus"></a></li>';}
 							if( $this->vars['bio']['social']['facebook'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['facebook'].'" class="icon-facebook"></a></li>';}
 							if( $this->vars['bio']['social']['twitter'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['twitter'].'" class="icon-twitter"></a></li>';}
 
@@ -119,7 +119,7 @@ function handleReturn(returnedObject){
 
 		<?php
 $sectionFormat = '
-		<section class="{{Type}}">
+		<section class="{{Type}} {{Title}}">
 				<div class="left">
 					<h2>{{Title}}</h2>
 				</div>
@@ -129,10 +129,6 @@ $sectionFormat = '
 				</div>
 		</section>
 				';
-$textFormat = '
-		<span class="mission">{{Text}}</span>
-				';
-
 $listItemFormat = '
 
 		<li itemprop="itemListElement">{{Text}}</li>
@@ -159,7 +155,7 @@ $jobsListItemFormat = '
 
 		';
 
-$this->showResume($sectionFormat, $textFormat, $jobsListItemFormat, $listItemFormat, $detailListItemFormat);
+$this->showResume($sectionFormat, $jobsListItemFormat, $listItemFormat, $detailListItemFormat);
 
 $contactFormFormat = '
 		<section class="contact">
