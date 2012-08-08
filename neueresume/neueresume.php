@@ -129,6 +129,12 @@ class NeueResume
 				$temp_section_content ='';
 
 				switch($section_info['type']) {
+				
+				case 'arbitrary':
+					echo ('<section class="'. $section_info['title']. $section_info['type'].'">'.$section.'</section>');
+					/* Skip to the end current switch loop, then skip the end of the whole foreach to avoid printing anything else */
+					continue 2;
+
 				case 'detail-list':
 					foreach ($section->item as $item) {
 
@@ -179,7 +185,7 @@ class NeueResume
 							(string)$item->link,
 							(string)$item->image
 						);
-						if((string)$item['type']=='html'){
+						if((string)$item['type']=='arbitrary'){
 							$temp_section_content .= (string)$item;
 						}
 						else{
@@ -189,12 +195,11 @@ class NeueResume
 					};
 					break;
 				default :
-						$temp_section_content .= (string)$section;
+					$temp_section_content .= (string)$section;
 					break;
 
 				}
-
-				$search = array(
+					$search = array(
 					'{{Title}}',
 					'{{Type}}',
 					'{{SectionContent}}'

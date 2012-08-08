@@ -18,9 +18,9 @@
 	-->
 		</social>
 	</bio>
-	<section title="objective">I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.
+	<section title="objective" type="text">I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.
 	</section>
-	<section title="Skills" type="list">
+	<section title="skills" type="list">
 		<item>Adobe Photoshop CS6</item>
 		<item>Adobe Illustrator CS6</item>
 		<item>Adobe After Effects CS6</item>
@@ -30,6 +30,9 @@
 		<item>Javascipt</item>
 		<item>jQuery</item>
 		<item>Sass</item>
+	</section>
+	<section type="arbitrary">
+		This is an invocation
 	</section>
 	<section title="experience" type="jobs">
 		<item>
@@ -53,7 +56,7 @@
 			<date>2010-</date>
 			<text>Responsible for creation of unifying identity across print and web media and supplying supporting imagery -including illustrations and photos.</text>
 		</item>
-		<item type="html">&lt;article class=&quot;see-more&quot;&gt;&lt;a href=&quot;http://nickswalker.github.com/neueresume/&quot;&gt;See a gallery of work examples...&lt;/a&gt;&lt;/article&gt;</item>
+		<item type="arbitrary">&lt;article class=&quot;see-more&quot;&gt;&lt;a href=&quot;http://nickswalker.github.com/neueresume/&quot;&gt;See a gallery of work examples...&lt;/a&gt;&lt;/article&gt;</item>
 	</section>
 	<section title="recognition" type="detail-list">
 		<item>
