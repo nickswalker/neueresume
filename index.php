@@ -7,7 +7,7 @@ require('neueresume/neueresume.php');
 
 $neuegal = new NeueResume;
 
-$neuegal->vars['version'] = '0.1';
+$neuegal->vars['version'] = '1.0';
 
 $neuegal->startTimer();
 
