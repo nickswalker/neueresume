@@ -31,6 +31,18 @@ if( file_exists($this->showThemeURL(1).'custom-style.css') ){
    	title : null
 }
 		});
+		(function() {
+			if (Contact) {
+				var email = $('a[itemprop=email]').text(),
+				returnMessage = $('.return-message').hide(),
+				form = $('form');
+				var contact = new Contact ( email, form, returnMessage );
+					$('.submit').on('click', function(event){
+						contact.sendEmail();
+						event.preventDefault();
+					});
+
+			}})();
 	});
 </script>
 </script>

@@ -154,7 +154,7 @@ class NeueResume
 					};
 					break;
 				case 'list':
-					$temp_section_content ='<ul class="talent" itemscope itemtype="http://schema.org/ItemList">';
+					$temp_section_content ='<ul itemscope itemtype="http://schema.org/ItemList">';
 					foreach ($section->item as $item) {
 						$search = array(
 							'{{Text}}'
@@ -290,10 +290,6 @@ class NeueResume
 			error_reporting(E_ALL);
 			ini_set('display_errors', '1');
 		}
-
-		//GZIP Compression
-		ini_set('zlib.output_compression', $this->settings['advanced']['use_gzip_compression']);
-		ini_set('zlib.output_compression_level', $this->settings['advanced']['gzip_compression_level']);
 
 		require('neueresume/themes/' . $this->settings['general']['theme'] . '/template.php');
 

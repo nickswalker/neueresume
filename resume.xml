@@ -31,9 +31,6 @@
 		<item>jQuery</item>
 		<item>Sass</item>
 	</section>
-	<section type="arbitrary">
-		This is an invocation
-	</section>
 	<section title="experience" type="jobs">
 		<item>
 			<title>Facebook</title>
