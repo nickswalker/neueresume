@@ -1,21 +1,6 @@
 $(document).ready(function() {
-		$('.fancybox').fancybox({
-			padding : 0,
-			openEffect: 'fade',
-			closeEffect: 'fade',
-			prevEffect: 'fade',
-			nextEffect: 'fade',
-			loop: false,
-			closeBtn: false,
-			helpers : {
-   	title : null
-}
-		});
-	});
-</script>
-<script type="text/javascript">
-$(document).ready(function() {
 	var $returnMessage = $('.return-message').hide(),
+	$email = $('a[itemprop=email]').text(),
 	$form = $('form');
 	$('.submit').on('click', function(event){
 		sendEmail();
@@ -29,7 +14,7 @@ function handleReturn(returnedObject){
 			$returnMessage.append('<span class="icon-ok"></span><span class="message">Message sent. I\'ll be in touch.</span>');
 				break;
 			case 'failed':
-				$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:<?php echo $this->vars['bio']['email'];?>">Try using your client?</a></span>');
+				$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:'+$email +'">Try using your client?</a></span>');
 				break;
 			default :
 				$returnMessage.append('<span class="icon-remove"></span><span class="message">'+returnedObject+'</span>');

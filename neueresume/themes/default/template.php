@@ -17,7 +17,23 @@ if( file_exists($this->showThemeURL(1).'custom-style.css') ){
 }?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="neueresume/scripts/fancybox/jquery.fancybox.js"></script>
-
+<script>
+	$(document).ready(function() {
+		$('.fancybox').fancybox({
+			padding : 0,
+			openEffect: 'fade',
+			closeEffect: 'fade',
+			prevEffect: 'fade',
+			nextEffect: 'fade',
+			loop: false,
+			closeBtn: false,
+			helpers : {
+   	title : null
+}
+		});
+	});
+</script>
+</script>
 
 <script src="<?php $this->showThemeURL();?>contact.js"></script>
 </head>
