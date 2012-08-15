@@ -276,10 +276,6 @@ class NeueResume
 			}
 		}
 	}
-
-
-
-
 	function initialize()
 	{
 		$this->loadVars();
