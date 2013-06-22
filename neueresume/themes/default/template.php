@@ -96,7 +96,7 @@ $listItemFormat = '
 $detailListItemFormat = '
 
 		<article>
-			<h2>{{Title}}</h2>
+			<h2>{{Title}}</h2><a class="icon-link .btn button"href="{{Link}}"></a>
 			<h3>{{SubTitle}}</h3>
 			<h4>{{Date}}</h4>
 			<p>{{Text}}</p>

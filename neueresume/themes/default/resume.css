@@ -318,11 +318,11 @@ article p {
 
 /* = Jobs
 -------------------------------------------------------------- */
-.jobs [href=''] {
+article [href=''] {
 	display:none!important;
 }
 
-.jobs [class^="icon-"]:before {
+article [class^="icon-"]:before {
 	color:#CCC;
 }
 

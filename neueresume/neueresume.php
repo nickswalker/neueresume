@@ -142,12 +142,14 @@ class NeueResume
 							'{{Title}}',
 							'{{SubTitle}}',
 							'{{Date}}',
+							'{{Link}}',
 							'{{Text}}'
 						);
 						$replace = array(
 							(string)$item->title,
 							(string)$item->subtitle,
 							(string)$item->date,
+							(string)$item->link,
 							(string)$item->text
 						);
 						$temp_section_content .= str_replace($search, $replace, $detailListItemFormat);
