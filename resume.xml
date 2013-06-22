@@ -10,20 +10,24 @@
 		<social>
 			<github>https://github.com/nickswalker/neueresume</github>
 	<!--
-			<vimeo></vimeo>
+			<instagram></instagram>
 			<tumblr></tumblr>
 			<google-plus></google-plus>
 			<twitter></twitter>
 			<facebook></facebook>
 	-->
+			<!--
+<vimeo></vimeo>
+			No icon. Pending work from font awesome.
+-->
 		</social>
 	</bio>
 	<section title="objective" type="text">I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.
 	</section>
 	<section title="skills" type="list">
-		<item>Adobe Photoshop CS6</item>
-		<item>Adobe Illustrator CS6</item>
-		<item>Adobe After Effects CS6</item>
+		<item>Adobe Photoshop</item>
+		<item>Adobe Illustrator </item>
+		<item>Adobe After Effects</item>
 		<item>HTML5</item>
 		<item>CSS3</item>
 		<item>PHP</item>

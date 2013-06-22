@@ -66,14 +66,11 @@ if( file_exists($this->showThemeURL(1).'custom-style.css') ){
 					</div>
 					<ul id="social">
 						<?php
-							if( $this->vars['bio']['social']['linkedin'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['linkedin'].'" class="icon-linkedin"></a></li>';}
-							if( $this->vars['bio']['social']['github'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['github'].'" class="icon-github"></a></li>';}
-							if( $this->vars['bio']['social']['vimeo'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['vimeo'].'" class="icon-vimeo"></a></li>';}
-							if( $this->vars['bio']['social']['tumblr'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['tumblr'].'" class="icon-tumblr"></a></li>';}
-							if( $this->vars['bio']['social']['google-plus'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['google-plus'].'" class="icon-google-plus"></a></li>';}
-							if( $this->vars['bio']['social']['facebook'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['facebook'].'" class="icon-facebook"></a></li>';}
-							if( $this->vars['bio']['social']['twitter'] != '' ){ echo '<li><a href="'.$this->vars['bio']['social']['twitter'].'" class="icon-twitter"></a></li>';}
-
+							foreach ( $this->vars['bio']['social'][0] as $name=>$value ){
+								if( $value != '' ){
+									echo '<li><a href="'.$value.'" class="icon-'.$name.'"></a></li>';
+								}
+							}
 ?>
 					</ul>
 				</div>
