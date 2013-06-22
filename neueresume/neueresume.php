@@ -1,5 +1,5 @@
 <?php
-
+require 'contact.php';
 class NeueResume
 {
 	var $settings;
@@ -154,7 +154,7 @@ class NeueResume
 					};
 					break;
 				case 'list':
-					$temp_section_content ='<ul class="talent" itemscope itemtype="http://schema.org/ItemList">';
+					$temp_section_content ='<ul itemscope itemtype="http://schema.org/ItemList">';
 					foreach ($section->item as $item) {
 						$search = array(
 							'{{Text}}'
@@ -219,62 +219,7 @@ class NeueResume
 		}
 	}
 	function handleContactForm()	{
-		$post = (!empty($_POST)) ? true : false;
-		if($post)
-		{
-			$name = stripslashes($_POST['name']);
-			$email = trim($_POST['email']);
-			$message = stripslashes($_POST['message']);	
-			// Check name
-		
-			if(!$name)
-			{
-				$error .= 'Please enter your name.<br />';
-			}
-		
-			// Check email
-		
-			if(!$email)
-			{
-				$error .= 'Please enter an e-mail address.<br />';
-			}
-		
-		
-			// Check agains bot habit
-		
-			if ($name && $email && $name==$email) {
-				$error .= 'Name and email cannot be the same.<br />';
-			}
-			
-		
-			// Check message (length)
-		
-			if(!$message || strlen($message) < 10)
-			{
-				$error .= "Please enter your message. It should have at least 10 characters.<br />";
-			}
-		
-			if(!$error)
-			{
-				$headers = "From: ".$name." <".$email.">\r\n"
-				."Reply-To: ".$email."\r\n"
-				."X-Mailer: PHP/" . phpversion();
-				$mail = mail($this->vars['bio']['email'], 'Contact Form Email', $message, $headers);
-		
-				if($mail)
-				{
-					echo 'sent';
-				}
-				else	{
-					echo 'failed';
-				}
-		
-			}
-			else
-			{
-				echo $error;
-			}
-		}
+		Contact::executeContact($_POST);
 	}
 	function initialize()
 	{
@@ -290,10 +235,6 @@ class NeueResume
 			error_reporting(E_ALL);
 			ini_set('display_errors', '1');
 		}
-
-		//GZIP Compression
-		ini_set('zlib.output_compression', $this->settings['advanced']['use_gzip_compression']);
-		ini_set('zlib.output_compression_level', $this->settings['advanced']['gzip_compression_level']);
 
 		require('neueresume/themes/' . $this->settings['general']['theme'] . '/template.php');
 
