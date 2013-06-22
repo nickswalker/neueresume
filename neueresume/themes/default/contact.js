@@ -1,11 +1,8 @@
-//Get width of Slider Container and set li width to this on every window resize if possible (at load is fine too)
 function Contact ( email, form, returnMessage) {
 	this.$email = email,
 	this.$form = form,
 	this.$returnMessage = returnMessage;
 }
-
-	
 
 Contact.prototype.handleReturn = function (returnedObject){
 		var self = this;
@@ -15,7 +12,7 @@ Contact.prototype.handleReturn = function (returnedObject){
 			self.$returnMessage.append('<span class="icon-ok"></span><span class="message">Message sent. I\'ll be in touch.</span>');
 				break;
 			case 'failed':
-				self.$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:'+$email +'">Try using your client?</a></span>');
+				self.$returnMessage.append('<span class="icon-remove"></span><span class="message">Sorry, the message can\'t seem to get through. <a href="mailto:'+self.$email +'">Try using your client?</a></span>');
 				break;
 			default :
 				self.$returnMessage.append('<span class="icon-remove"></span><span class="message">'+returnedObject+'</span>');
@@ -43,7 +40,7 @@ Contact.prototype.sendEmail =	function (){
 	};
 		$.ajax({
 	type: "POST",
-	url: "index.php",
+	url: this.$form.attr('action'),
 	data: data,
 	dataType: "text",
 	success: function(returnedObject){
