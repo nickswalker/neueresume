@@ -115,7 +115,7 @@ class NeueResume
 		echo str_replace($search, $replace, $contactFormFormat);
 		
 	}
-	function showResume($sectionFormat, $jobsListItemFormat, $listItemFormat, $detailListItemFormat){
+	function showResume($sectionFormat, $highlightListItemFormat, $listItemFormat, $detailListItemFormat){
 		if (file_exists('resume.xml')) {
 			$resume_xml = simplexml_load_file('resume.xml');
 
@@ -191,7 +191,7 @@ class NeueResume
 							$temp_section_content .= (string)$item;
 						}
 						else{
-							$temp_section_content .= str_replace($search, $replace, $jobsListItemFormat);
+							$temp_section_content .= str_replace($search, $replace, $highlightListItemFormat);
 						}
 						
 					};

@@ -61,6 +61,7 @@ body {
 	margin:auto;
 	text-shadow:0 1px 0 rgba(255,255,255,01);
 	background-color:#FFF;
+	
 }
 
 #container {
@@ -72,6 +73,8 @@ body {
 	box-shadow:0 0 3px rgba(0,0,0,.4);
 	border-left:1px solid #DDD;
 	border-right:1px solid #DDD;
+	position: relative;
+	overflow: hidden;
 }
 
 section {
@@ -125,7 +128,7 @@ header {
 }
 
 .contact-info {
-/*width: 87px ;*/
+	/*width: 87px ;*/
 	display:inline-block;
 	vertical-align:top;
 	float:left;
@@ -290,6 +293,27 @@ article p {
 	margin:10px 0;
 }
 
+.detail-list .right article h2	{
+	font-size: 14px;
+	float: left;
+}
+.detail-list .right article h3	{
+	font-size: 14px;
+	float: left;
+	clear: none;
+	font-weight: 300;
+	margin-left: 20px;
+	font-style: italic;
+}
+.detail-list .right article p	{
+	clear: both;
+	font-size: 14px;
+}
+.detail-list .right article hgroup	{
+	margin-bottom: 10px;
+	clear: both;
+	overflow: auto;
+}
 /* = List
 -------------------------------------------------------------- */
 .skills ul {
@@ -344,18 +368,50 @@ article [class^="icon-"]:before {
 
 /* = Contact Form
 -------------------------------------------------------------- */
+.contact	{
+	display: -webkit-flex;
+	-webkit-flex-flow: column wrap;
+	width: 950px;
+	box-sizing: border-box;
+	margin: 0 auto;
+		border: 1px #aaa;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	box-shadow:0 0 3px rgba(0,0,0,.4);
+	position: absolute;
+	padding: 40px;
+	border-radius: 20px 20px 0 0;
+	transition: .3s;
+}
+.contact.hidden	{
+	bottom: -90px;
+}
+.contact h2	{
+	text-align: center;
+	flex: 1 1 100%;
+	font-size: 36px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+.return-message	{
+	display: -webkit-flex;
+	margin: auto;
+}
+#contact-form	{
+	display: -webkit-flex;
+	width: 100%;
+	-webkit-flex-flow: row wrap;
+	-webkit-justify-content: space-between;
+	-webkit-align-content: space-between;
+}
 input {
+	-webkit-flex: 1 1 40%;
 	padding:7px 5px;
-	width:307px;
-	margin-right:10px;
+	max-width:50%;
 }
 
-input:last-of-type {
-	margin-right:0;
-}
 
 input,textarea {
-	display:inline-block;
 	box-shadow:inset 0 0 6px rgba(0,0,0,.1);
 	border:1px solid #777;
 	font-size:16px;
@@ -367,11 +423,15 @@ input,textarea {
 }
 
 textarea {
-	width:100%;
+	-webkit-flex: 1 100%;
+		min-height: 150px;
+	
 }
 
 .contact button {
 	height:34px;
+	-webkit-flex: 1 100%;
+	text-align: center;
 }
 
 .contact [class^="icon-"] {
