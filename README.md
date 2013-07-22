@@ -3,8 +3,6 @@ NeueResume
 
 A simple PHP resume template. NeueResume makes it easy to seperate model and view when making HTML resumes.
 
-More information and examples: http://nickswalker.github.com/neueresume/
-
 Installation
 ------
 
