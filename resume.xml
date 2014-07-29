@@ -15,14 +15,11 @@
 			<google-plus></google-plus>
 			<twitter></twitter>
 			<facebook></facebook>
-	-->
-			<!--
-<vimeo></vimeo>
-			No icon. Pending work from font awesome.
+			<vimeo></vimeo>
 -->
 		</social>
 	</bio>
-	<section title="objective" type="text">I seek the opportunity to transform cross-platform concepts through gamification and individual social incentivization.
+	<section title="objective" type="text">I seek the opportunity to transform cross-platform concepts to reality through gamification and individual social incentivization.
 	</section>
 	<section title="skills" type="list">
 		<item>Adobe Photoshop</item>
@@ -35,7 +32,7 @@
 		<item>jQuery</item>
 		<item>Sass</item>
 	</section>
-	<section title="experience" type="jobs">
+	<section title="experience" type="highlight-list">
 		<item>
 			<title>Facebook</title>
 			<subtitle>Senior Marketing Engineer</subtitle>

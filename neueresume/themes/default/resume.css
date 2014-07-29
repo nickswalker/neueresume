@@ -1,4 +1,4 @@
-@import url("font-awesome.css");
+@import url("ionicons.min.css");
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -17,9 +17,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 }
 
 body {
-	font-size:14px;
-	line-height:1.25;
-	font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+	font-size:16px;
+	line-height:1.5;
+	font-family:'Merriweather Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
 ol,ul {
@@ -59,7 +59,6 @@ body {
 	color:#444;
 	width:950px;
 	margin:auto;
-	text-shadow:0 1px 0 rgba(255,255,255,01);
 	background-color:#FFF;
 	
 }
@@ -69,8 +68,7 @@ body {
 	margin:80px auto;
 	border-top:8px solid #666;
 	border-bottom:2px solid #666;
-	background:#f5f5f5 url(media/paper.png);
-	box-shadow:0 0 3px rgba(0,0,0,.4);
+	background:#f5f5f5;
 	border-left:1px solid #DDD;
 	border-right:1px solid #DDD;
 	position: relative;
@@ -78,8 +76,8 @@ body {
 }
 
 section {
-	margin-bottom:2rem;
-	padding-bottom:2rem;
+	margin-bottom:1.5rem;
+	padding-bottom:1.5rem;
 	border-bottom:1px solid #ccc;
 	overflow:auto;
 }
@@ -110,8 +108,8 @@ footer {
 /* = Header
 -------------------------------------------------------------- */
 header {
-	margin:25px 0 42px;
-	padding-bottom:21px;
+	margin:1rem 0 .5rem 0;
+	padding-bottom:1rem;
 	border-bottom:1px solid #ccc;
 	overflow:auto;
 }
@@ -126,7 +124,9 @@ header {
 	float:left;
 	vertical-align:top;
 }
-
+.plate h1{
+	font-family: 'Arvo', 'Georgia', serif;
+}
 .contact-info {
 	/*width: 87px ;*/
 	display:inline-block;
@@ -185,7 +185,7 @@ h2 {
 }
 
 .left h2 {
-	font-weight:500;
+	font-weight:600;
 	font-style:italic;
 	text-transform:capitalize;
 }
@@ -200,23 +200,6 @@ a {
 
 a:hover {
 	text-decoration:none;
-}
-
-[class^="icon-"]:before {
-	text-decoration:none;
-}
-
-li [class^="icon-"],li [class*=" icon-"] {
-	width:auto;
-}
-
-.button {
-	background-size:contain;
-	height:24px;
-	width:24px;
-	float:left;
-	display:inline-block;
-	margin-left:20px;
 }
 
 /*--- = Header */
@@ -268,12 +251,12 @@ button:hover {
 article {
 	position:relative;
 	margin-bottom:1rem;
-	padding-bottom:1rem;
-	border-bottom:1px solid #ccc;
 }
 
 article h2 {
-	font-weight:500;
+	font-size: 16px;
+	line-height: 1;
+	font-weight:600;
 	float:left;
 	display:inline-block;
 }
@@ -290,14 +273,14 @@ article h4 {
 }
 
 article p {
-	margin:10px 0;
+	margin:0;
 }
 
-.detail-list .right article h2	{
+.detail-list article h2	{
 	font-size: 14px;
 	float: left;
 }
-.detail-list .right article h3	{
+.detail-list article h3	{
 	font-size: 14px;
 	float: left;
 	clear: none;
@@ -305,11 +288,11 @@ article p {
 	margin-left: 20px;
 	font-style: italic;
 }
-.detail-list .right article p	{
+.detail-list article p	{
 	clear: both;
 	font-size: 14px;
 }
-.detail-list .right article hgroup	{
+.detail-list article hgroup	{
 	margin-bottom: 10px;
 	clear: both;
 	overflow: auto;
@@ -337,12 +320,11 @@ article p {
 
 .list li {
 	line-height:24px;
-	border-bottom:1px solid #ccc;
 }
 
-/* = Jobs
+/* = oblight List
 -------------------------------------------------------------- */
-article [href=''] {
+article a[href=''] {
 	display:none!important;
 }
 
@@ -353,9 +335,7 @@ article [class^="icon-"]:before {
 /* = Objective
 -------------------------------------------------------------- */
 .objective .right {
-	font-size:21px;
 	text-align:justify;
-	font-weight:400;
 }
 
 .objective .right::before {
@@ -442,41 +422,56 @@ textarea {
 .contact [class^="icon-"]:before {
 	font-size:36px;
 }
+/* = Recognition
+-------------------------------------------------------------- */
+
+.recognition article{
+	border:none;
+	margin: 0;
+	padding: 0;
+}
+.recognition article hgroup{
+	margin: 0;
+}
+/* = Media Queries
+-------------------------------------------------------------- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+	section
+	 {
+		border-width: 0.5px !important;
+	}
+}
 
 /* = Print
 -------------------------------------------------------------- */
 @media print {
-a {
-	text-decoration:none!important;
-}
-
-article {
-	page-break-inside:avoid;
-}
-
-h3#print,#social,.button,.contact {
-	display:none;
-}
-
-#container {
-	margin:0;
-	border:none;
-	box-shadow:none;
-}
-
-.skills li {
-	display:inline-block;
-	width:26%;
-	margin-right:3%;
-}
-
-.skills li:nth-child(3n) {
-	border-bottom:1px solid #CCC;
-	margin-bottom:0;
-}
-
-.skills li:nth-child(n+7):nth-child(-n+9) {
-	border:none;
-	margin-bottom:-3px;
-}
+	body{
+		font-size: 12px;
+		line-height: 16px;
+		font-family: 'Merriweather', serif;
+	}
+	a {
+		text-decoration:none!important;
+	}
+	
+	article {
+		page-break-inside:avoid;
+	}
+	
+	h3#print,#social,.button,.contact {
+		display:none;
+	}
+	
+	#container {
+		margin:0;
+		border:none;
+		box-shadow:none;
+	}
+	
+	.skills li {
+		display:inline-block;
+		width:26%;
+		margin-right:3%;
+	}
+	
 }

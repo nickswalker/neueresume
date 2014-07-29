@@ -12,8 +12,8 @@
 	if( file_exists('custom-style.css') ){
 		echo ('<link rel="stylesheet" href="custom-style.css">');
 	}?>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
-	<script src="neueresume/scripts/fancybox/jquery.fancybox.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 	<script>
 		$(document).ready(function() {
 			$('.fancybox').fancybox({
@@ -28,23 +28,9 @@
 	   	title : null
 	}
 			});
-			(function() {
-				if (Contact) {
-					var email = $('a[itemprop=email]').text(),
-					returnMessage = $('.return-message').hide(),
-					form = $('form');
-					var contact = new Contact ( email, form, returnMessage );
-						$('.submit').on('click', function(event){
-							contact.sendEmail();
-							event.preventDefault();
-						});
-						
-	
-				}
-			})();
+			
 		});
 	</script>
-	<script src="<?php $this->showThemeURL();?>contact.js"></script>
 </head>
 <body>
 	<div id="container">
@@ -65,7 +51,7 @@
 						<?php
 							foreach ( $this->vars['bio']['social'][0] as $name=>$value ){
 								if( $value != '' ){
-									echo '<li><a href="'.$value.'" class="icon-'.$name.'"></a></li>';
+									echo '<li><a href="'.$value.'" class="ion-social-'.$name.'"></a></li>';
 								}
 							}
 ?>
@@ -74,56 +60,10 @@
 		</header>
 
 		<?php
-$sectionFormat = '
-		<section class="{{Type}} {{Title}}">
-				<div class="left">
-					<h2>{{Title}}</h2>
-				</div>
 
-				<div class="right">
-				{{SectionContent}}
-				</div>
-		</section>
-				';
-$listItemFormat = '
+$this->showResume();
 
-		<li itemprop="itemListElement">{{Text}}</li>
 
-		';
-$detailListItemFormat = '
-
-		<article>
-			<hgroup>
-				<h2>{{Title}}</h2><a class="icon-link .btn button"href="{{Link}}"></a>
-				<h3>{{SubTitle}}</h3>
-				<h4>{{Date}}</h4>
-			</hgroup>
-			<p>{{Text}}</p>
-		</article>
-
-		';
-$highlightListItemFormat = '
-
-		<article itemscope itemtype="http://schema.org/CreativeWork">
-			<hgroup>
-				<h2 itemprop="name">{{Title}}</h2><a class="icon-link .btn button"href="{{Link}}"><a class="icon-picture .btn fancybox button" href="{{ImagePath}}"></a>
-				<h3 itemprop="genre">{{SubTitle}}</h3>
-				<h4>{{Date}}</h4>
-			</hgroup>
-			<p itemprop="description">{{Text}}</p>
-		</article>
-
-		';
-
-$this->showResume($sectionFormat, $highlightListItemFormat, $listItemFormat, $detailListItemFormat);
-
-$contactFormFormat = '
-		<div class="contact">
-			<h2>Contact...</h2>
-				{{ContactForm}}
-				
-		</div>
-				';
 ?>
 
 
@@ -132,7 +72,5 @@ $contactFormFormat = '
 		</footer>
 	
 	</div>
-	
-	<?php $this->showContactForm($contactFormFormat); ?>
 </body>
 </html>
