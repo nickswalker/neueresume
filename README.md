@@ -1,8 +1,10 @@
 NeueResume
 ==========
 
+<img src="images/example.png" title="Example resume using default theme." />
+
 A simple PHP rèsumè template. Create a resume that lives on the web, but prints like it was born in a word processor.
-View a demo [here](http://nickwalker.us/).
+View a live demo [here](http://resume.nickwalker.us/).
 
 Features
 * Easy to update XML format
@@ -15,7 +17,7 @@ Features
 Installation
 ------
 
-Just unzip the download into any directory on a PHP 5.2 or above enabled server and you'll be up and running. See the sections below about configuring the `settings.php` file and writing your resume content.
+Just unzip the download into any directory on a PHP 5.2 or above enabled server and you'll be up and running. See the sections below for guidance about writing your resume content and how to customize the installation.
 
 Usage
 ------

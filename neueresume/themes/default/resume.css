@@ -150,11 +150,12 @@ header {
 
 #social li a {
 	display:block;
+	text-align: center;
 }
 
 #social a {
 	font-size:24px;
-	color:rgba(100,100,100,.8);
+	color: #666;
 }
 
 /*--- = Footer */
@@ -240,6 +241,23 @@ button {
 button:hover {
 	background:#333;
 }
+/* = List
+-------------------------------------------------------------- */
+.skills ul {
+	-webkit-column-count:3;
+	-moz-column-count:3;
+	-webkit-column-gap:20px;
+	-moz-column-gap:20px;
+	column-gap:20px;
+}
+
+.skills li {
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+.list li {
+}
 
 /* = Detail List
 -------------------------------------------------------------- */
@@ -257,6 +275,7 @@ article h2 {
 
 article h3 {
 	clear:both;
+	font-style: italic;
 }
 
 article h4 {
@@ -291,23 +310,7 @@ article p {
 	clear: both;
 	overflow: auto;
 }
-/* = List
--------------------------------------------------------------- */
-.skills ul {
-	-webkit-column-count:3;
-	-moz-column-count:3;
-	-webkit-column-gap:20px;
-	-moz-column-gap:20px;
-	column-gap:20px;
-}
 
-.skills li {
-	overflow:hidden;
-	text-overflow:ellipsis;
-}
-
-.list li {
-}
 
 /* = Grouped List
 -------------------------------------------------------------- */	
@@ -345,82 +348,7 @@ article hgroup a {
 	margin-left: 12px;
 }
 
-/* = Contact Form
--------------------------------------------------------------- */
-.contact	{
-	display: -webkit-flex;
-	-webkit-flex-flow: column wrap;
-	width: 950px;
-	box-sizing: border-box;
-	margin: 0 auto;
-		border: 1px #aaa;
-	background-color: #eee;
-	border: 1px solid #ccc;
-	box-shadow:0 0 3px rgba(0,0,0,.4);
-	position: absolute;
-	padding: 40px;
-	border-radius: 20px 20px 0 0;
-	transition: .3s;
-}
-.contact.hidden	{
-	bottom: -90px;
-}
-.contact h2	{
-	text-align: center;
-	flex: 1 1 100%;
-	font-size: 36px;
-	font-weight: 700;
-	margin-bottom: 20px;
-}
-.return-message	{
-	display: -webkit-flex;
-	margin: auto;
-}
-#contact-form	{
-	display: -webkit-flex;
-	width: 100%;
-	-webkit-flex-flow: row wrap;
-	-webkit-justify-content: space-between;
-	-webkit-align-content: space-between;
-}
-input {
-	-webkit-flex: 1 1 40%;
-	padding:7px 5px;
-	max-width:50%;
-}
 
-
-input,textarea {
-	box-shadow:inset 0 0 6px rgba(0,0,0,.1);
-	border:1px solid #777;
-	font-size:16px;
-	font-family:inherit;
-	margin-bottom:10px;
-	padding:7px 5px;
-	box-sizing:border-box;
-	background-color:#FFF;
-}
-
-textarea {
-	-webkit-flex: 1 100%;
-		min-height: 150px;
-	
-}
-
-.contact button {
-	height:34px;
-	-webkit-flex: 1 100%;
-	text-align: center;
-}
-
-.contact [class^="icon-"] {
-	float:left;
-	margin-right:20px;
-}
-
-.contact [class^="icon-"]:before {
-	font-size:36px;
-}
 /* = Recognition
 -------------------------------------------------------------- */
 
@@ -482,6 +410,9 @@ textarea {
 	/*--- =  Core Typography */
 	article h2{
 		font-size: 1rem;
+	}
+	article a {
+		display: none;
 	}
 	.left	{
 		font-family:'Merriweather Sans','Helvetica Neue',Helvetica,Arial,sans-serif;

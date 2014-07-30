@@ -7,7 +7,7 @@
 	<meta name="description" content="<?php echo $bio['name'];?>'s resume." />
 	<link rel="stylesheet"  href="<?php echo $this->getThemeURL();?>resume.css" media="all" />
 	<!-- <link href='http://fonts.googleapis.com/css?family=Arvo:400italic,700|Merriweather:300,300italic,400,400italic,700,700italic|Merriweather+Sans:300,300italic,400italic,400,700,700italic' rel='stylesheet' > -->
-	<link rel="stylesheet" href="neueresume/scripts/fancybox/jquery.fancybox.css">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
 	<?php 
 	if( file_exists('custom-style.css') ){
 		echo ('<link rel="stylesheet" href="custom-style.css">');
@@ -44,8 +44,8 @@
 						<h3 id="print"><button onClick="window.print()">Print</button></h3>
 						<h3><a itemprop="url" href="http://<?php echo $bio['site'];?>"><?php echo $bio['site'];?></a></h3>
 						<h3><a itemprop="email" href="mailto:<?php echo $bio['email'];?>"><?php echo $bio['email'];?></a></h3>
-						<h3 itemprop="telephone"><?php echo $bio['phone-number'];?></h3>
-						<h4 itemprop="address" class="address"><?php echo $bio['street-address'];?></h4>
+						<h3 itemprop="telephone"><?php echo issetor($bio['phone-number']);?></h3>
+						<h4 itemprop="address" class="address"><?php echo issetor($bio['street-address']);?></h4>
 					</div>
 					<ul id="social">
 						<?php

@@ -5,15 +5,14 @@
 		<job-title>Developer</job-title>
 		<email>john@johndoe.com</email>
 		<site>johndoe.com</site>
-		<phone-number>555.782.5412</phone-number>
 		<street-address></street-address>
 		<social>
 			<github>https://github.com/nickswalker/neueresume</github>
 			<tumblr>http://blog.nickwalker.us</tumblr>
+			<facebook>http://facebook.com/nick.walker</facebook>
 		<!--<instagram></instagram>
 			<google-plus></google-plus>
 			<twitter></twitter>
-			<facebook></facebook>
 			<vimeo></vimeo>-->
 		</social>
 	</bio>
@@ -40,16 +39,24 @@
 		</item>
 		<item>
 			<title>Threadless</title>
-			<image>images/shirt.png</image>
+			<image-path>images/shirt.png</image-path>
 			<subtitle>Print Designer</subtitle>
 			<date>2011-2012</date>
 			<text>Designed inexpensive, synergistic T-shirt reconcepulizations to morph niche markets into main street main stays. </text>
 		</item>
 		<item>
+			<title>NeueResume</title>
+			<link>http:/github.com/nickswalker/neueresume/</link>
+			<image-path>images/example.png</image-path>
+			<subtitle>Web Development</subtitle>
+			<date>2012-pres.</date>
+			<text>Created demographic-bridging, paradigm shifting solution to solve a 21st century problem in a 21st century way.</text>
+		</item>
+		<item>
 			<title>Mary Ann Doe</title>
-			<link>http://nickswalker.github.com/neuegal/</link>
+			<link>http:/github.com/nickswalker/neueresume/</link>
 			<subtitle>Identity and Web Design</subtitle>
-			<date>2010-</date>
+			<date>2010-pres.</date>
 			<text>Responsible for creation of unifying identity across print and web media and supplying supporting imagery -including illustrations and photos.</text>
 		</item>
 		<item type="arbitrary"><![CDATA[ <article class="see-more"><a href="http://nickwalker.us/">See a gallery of work examples...</a></article>
@@ -80,10 +87,12 @@
 			</item>
 		</group>
 	</section>
-	<section title="education" type="detail-list">
+	<section title="education" type="highlight-list">
 		<item>
 			<title>University of Texas at Austin</title>
-			<subtitle>Computer Science Major - 4.0 GPA</subtitle>
+			<date>2018</date>
+			<subtitle>BSA Computer Science</subtitle>
+			<text>Polymathic Scholars program</text>
     	</item>
 	</section>
 </resume>

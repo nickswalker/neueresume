@@ -166,7 +166,7 @@ class NeueResume
 				(string)$item->date,
 				(string)$item->text,
 				(string)$item->link,
-				(string)$item->image
+				(string)$item->{'image-path'}
 			);
 			if((string)$item['type']=='arbitrary'){
 				$returnString .= (string)$item;
@@ -247,4 +247,9 @@ class NeueResume
 
 	}
 
+}
+
+//This is a convenience polyfill until PHP6
+function issetor(&$var, $default = false) {
+	return isset($var) ? $var : $default;
 }
