@@ -4,34 +4,35 @@ class NeueResume
 {
 	var $settings;
 	var $vars;
-
-	function startTimer() {
-		$temp_time = microtime();
-		$temp_time = explode(" ", $temp_time);
-		$temp_time = $temp_time[1] + $temp_time[0];
-		$this->vars['start_time'] = $temp_time;
-	}
-
-	function endTimer() {
-		$temp_time = microtime();
-		$temp_time = explode(" ", $temp_time);
-		$temp_time = $temp_time[1] + $temp_time[0];
-		$this->vars['end_time'] = $temp_time;
-		$this->vars['total_time'] = ($this->vars['end_time'] - $this->vars['start_time']);
-	}
-
-	function loadSettings() {
-		if (!is_file('neueresume/settings.php'))
+	
+	function initialize(){
+		$this->loadVars();
+	
+		//Debug Mode
+		if ($this->settings['advanced']['debug_mode'] == true)
 		{
-		} else {
+			error_reporting(E_ALL);
+			ini_set('display_errors', '1');
+		}
+		$bio = $this->vars['bio'];
+		$social = $this->vars['bio']['social'];
+		$settings = $this->settings;
+		require('neueresume/themes/' . $this->settings['general']['theme'] . '/template.php');
+
+		if ($this->settings['advanced']['debug_show_all'] == true)
+		{
+			echo "DEBUG - Page Variables: <br><br>";
+			echo "<pre>";
+			print_r($this->vars);
+			echo "</pre>";
+		}
+	}
+	function loadSettings() {
+		if ( is_file('neueresume/settings.php') ){
 			require('neueresume/settings.php');
 		}
 
-		if (!is_file('neueresume/themes/' . $this->settings['general']['theme'] . '/settings.php'))
-		{
-			return false;
-		} else {
-
+		if (is_file('neueresume/themes/' . $this->settings['general']['theme'] . '/settings.php')){
 			require('neueresume/themes/' . $this->settings['general']['theme'] . '/settings.php');
 			return true;
 		}
@@ -39,57 +40,14 @@ class NeueResume
 	function loadVars()	{
 		if (file_exists('resume.xml')) {
 			$resume_xml = simplexml_load_file('resume.xml');
-		foreach ($resume_xml->bio->children() as $name=>$value){
-			$this->vars['bio'][$name] = (string)$value;
-		}
-		$this->vars['bio']['social'] =  $resume_xml->bio->social;
-		foreach($resume_xml->bio->social->children() as $name=>$value){
+			foreach ($resume_xml->bio->children() as $name=>$value){
+				$this->vars['bio'][$name] = (string)$value;
+			}
+			$this->vars['bio']['social'] =  $resume_xml->bio->social;
+			foreach($resume_xml->bio->social->children() as $name=>$value){
 				$this->vars['bio']['social'][$name] = (string)$value;
 			}
-
 		}
-	}
-
-	function outputSettingsArray() {
-		echo '<pre>';
-		print_r($this->settings);
-		echo '</pre>';
-	}
-
-	function outputVarsArray() {
-		echo '<pre>';
-		print_r($this->vars);
-		echo '</pre>';
-	}
-
-	function showLoadInfo($loadInfoFormat) {
-
-		$this->endTimer();
-
-		$search = array(
-			'{{Version}}',
-			'{{LoadTime}}'
-		);
-		$replace = array(
-			$this->vars['version'],
-			number_format($this->vars['total_time'], 7)
-		);
-
-		echo str_replace($search, $replace, $loadInfoFormat);
-
-
-	}
-
-	function showThemeURL($format = 0)
-	{
-		//0 = Output url
-		//1 = Return url as string
-		if ($format == 0)
-		{
-			echo 'neueresume/themes/' . $this->settings['general']['theme'] . '/';
-		} else if ($format == 1) {
-				return 'neueresume/themes/' . $this->settings['general']['theme'] . '/';
-			}
 	}
 
 	//Parses XML and delegates to functions to return processed HTML
@@ -220,29 +178,12 @@ class NeueResume
 		};
 		return $returnString;
 	}
-	function makeGroupedListSection($section){
-		$groupedListItemFormat= $this->settings['theme']['groupedListItemFormat'];
+	function makeGroupedListSection($section){	
 		$groupedListGroupFormat= $this->settings['theme']['groupedListGroupFormat'];
 		$returnString = '';
 		foreach ($section->group as $group) {
 			//For each group in this section grab all item children into a string
-			$temp_group_content = '';
-			foreach ($group->item as $item){
-				
-				$search = array(
-					'{{Title}}',
-					'{{Date}}',
-					'{{Link}}',
-					'{{Text}}'
-				);
-				$replace = array(
-					(string)$item->title,
-					(string)$item->date,
-					(string)$item->link,
-					(string)$item->text
-				);
-				$temp_group_content .= str_replace($search, $replace, $groupedListItemFormat);
-			};
+			$temp_group_content = $this->makeDetailListSection($group);
 			$group_info['title'] = (string)$group['title'];
 			$search = array(
 				'{{Title}}',
@@ -257,25 +198,53 @@ class NeueResume
 		};
 		return $returnString;
 	}
-	function initialize(){
-		$this->loadVars();
-	
-		//Debug Mode
-		if ($this->settings['advanced']['debug_mode'] == true)
-		{
-			error_reporting(E_ALL);
-			ini_set('display_errors', '1');
-		}
-
-		require('neueresume/themes/' . $this->settings['general']['theme'] . '/template.php');
-
-		if ($this->settings['advanced']['debug_show_all'] == true)
-		{
-			echo "DEBUG - Page Variables: <br><br>";
-			echo "<pre>";
-			print_r($this->vars);
-			echo "</pre>";
-		}
+	function getThemeURL(){
+		return 'neueresume/themes/' . $this->settings['general']['theme'] . '/';
 	}
+	//Debug and plumbing
+
+	function startTimer() {
+		$temp_time = microtime();
+		$temp_time = explode(" ", $temp_time);
+		$temp_time = $temp_time[1] + $temp_time[0];
+		$this->vars['start_time'] = $temp_time;
+	}
+
+	function endTimer() {
+		$temp_time = microtime();
+		$temp_time = explode(" ", $temp_time);
+		$temp_time = $temp_time[1] + $temp_time[0];
+		$this->vars['end_time'] = $temp_time;
+		$this->vars['total_time'] = ($this->vars['end_time'] - $this->vars['start_time']);
+	}
+	function outputSettingsArray() {
+		echo '<pre>';
+		print_r($this->settings);
+		echo '</pre>';
+	}
+
+	function outputVarsArray() {
+		echo '<pre>';
+		print_r($this->vars);
+		echo '</pre>';
+	}
+
+	function showLoadInfo($loadInfoFormat) {
+
+		$this->endTimer();
+
+		$search = array(
+			'{{Version}}',
+			'{{LoadTime}}'
+		);
+		$replace = array(
+			$this->vars['version'],
+			number_format($this->vars['total_time'], 7)
+		);
+
+		echo str_replace($search, $replace, $loadInfoFormat);
+
+
+	}
+
 }
-?>

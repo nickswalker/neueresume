@@ -18,7 +18,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 
 body {
 	font-size:16px;
-	line-height:1.5;
+	line-height:24px;
 	font-family:'Merriweather Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
@@ -108,8 +108,8 @@ footer {
 /* = Header
 -------------------------------------------------------------- */
 header {
-	margin:1rem 0 .5rem 0;
-	padding-bottom:1rem;
+	margin:1.5rem 0 1.5rem 0;
+	padding-bottom:1.5rem;
 	border-bottom:1px solid #ccc;
 	overflow:auto;
 }
@@ -152,13 +152,9 @@ header {
 	display:block;
 }
 
-#social [class^="icon-"]:before {
+#social a {
 	font-size:24px;
 	color:rgba(100,100,100,.8);
-	text-shadow:1px 2px 2px #f4f4f4,0 0 0 #000,1px 2px 2px #f4f4f4;
-}
-
-#social [class^="icon-"]:hover:before {
 }
 
 /*--- = Footer */
@@ -177,7 +173,6 @@ footer p {
 -------------------------------------------------------------- */
 h1,h2,h3,h4 {
 	color:#333;
-	line-height:1.25;
 }
 
 h2 {
@@ -254,8 +249,7 @@ article {
 }
 
 article h2 {
-	font-size: 16px;
-	line-height: 1;
+	font-size: 18px;
 	font-weight:600;
 	float:left;
 	display:inline-block;
@@ -308,42 +302,47 @@ article p {
 }
 
 .skills li {
-	height:25px;
 	overflow:hidden;
 	text-overflow:ellipsis;
 }
 
-.skills li:nth-child(3n) {
-	border:none;
-	margin-bottom:-3px;
-}
-
 .list li {
-	line-height:24px;
 }
 
-/* = oblight List
+/* = Grouped List
+-------------------------------------------------------------- */	
+
+.grouped-list ul	{
+	list-style: none;
+	margin-left: 24px;
+
+}
+.grouped-list .button	{
+	float: none;
+}
+.grouped-list li	{
+	display: block;
+}
+.grouped-list span	{
+	font-style: italic;
+}
+.grouped-list time	{
+	float: right;
+}
+.grouped-list h3	{
+	text-transform: capitalize;
+	font-weight: 600;
+}
+
+/* = Highlight List
 -------------------------------------------------------------- */
 article a[href=''] {
 	display:none!important;
 }
 
-article [class^="icon-"]:before {
+article hgroup a {
 	color:#CCC;
-}
-
-/* = Objective
--------------------------------------------------------------- */
-.objective .right {
-	text-align:justify;
-}
-
-.objective .right::before {
-	content:'"';
-}
-
-.objective .right::after {
-	content:'"';
+	margin-left: 12px;
 }
 
 /* = Contact Form
@@ -446,10 +445,14 @@ textarea {
 -------------------------------------------------------------- */
 @media print {
 	body{
-		font-size: 12px;
-		line-height: 16px;
 		font-family: 'Merriweather', serif;
 	}
+	section, header	{
+		margin-bottom: 8px;
+		padding-bottom: 4px;
+	}
+	
+	
 	a {
 		text-decoration:none!important;
 	}
@@ -470,8 +473,27 @@ textarea {
 	
 	.skills li {
 		display:inline-block;
-		width:26%;
+		width:26%; /* Print css overides columns by default*/
 		margin-right:3%;
 	}
-	
+	section,header	{
+		border-bottom:1px solid #ccc !important;
+	}
+	/*--- =  Core Typography */
+	article h2{
+		font-size: 1rem;
+	}
+	.left	{
+		font-family:'Merriweather Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
+	}
+	.plate h1	{
+		font-size: 36px;
+	}
+	.plate h2{
+		font-size: 1rem;
+	}
+	.right-plate .contact-info{
+		float: right;
+		text-align: right;
+	}
 }

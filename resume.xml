@@ -9,14 +9,12 @@
 		<street-address></street-address>
 		<social>
 			<github>https://github.com/nickswalker/neueresume</github>
-	<!--
-			<instagram></instagram>
-			<tumblr></tumblr>
+			<tumblr>http://blog.nickwalker.us</tumblr>
+		<!--<instagram></instagram>
 			<google-plus></google-plus>
 			<twitter></twitter>
 			<facebook></facebook>
-			<vimeo></vimeo>
--->
+			<vimeo></vimeo>-->
 		</social>
 	</bio>
 	<section title="objective" type="text">I seek the opportunity to transform cross-platform concepts to reality through gamification and individual social incentivization.
@@ -54,28 +52,33 @@
 			<date>2010-</date>
 			<text>Responsible for creation of unifying identity across print and web media and supplying supporting imagery -including illustrations and photos.</text>
 		</item>
-		<item type="arbitrary">&lt;article class=&quot;see-more&quot;&gt;&lt;a href=&quot;http://nickswalker.github.com/neueresume/&quot;&gt;See a gallery of work examples...&lt;/a&gt;&lt;/article&gt;</item>
+		<item type="arbitrary"><![CDATA[ <article class="see-more"><a href="http://nickwalker.us/">See a gallery of work examples...</a></article>
+		]]>
+		</item>
 	</section>
-	<section title="recognition" type="detail-list">
-		<item>
-			<title>Outstanding Synergizer</title>
-			<link>http://nickswalker.github.com/neuegal/</link>
-			<subtitle>Board for the Greater Synergy</subtitle>
-			<date>2012</date>
-			<text />
-		</item>
-		<item>
-			<title>Achievement in Double Speak</title>
-			<subtitle>Commission for California Culture</subtitle>
-			<date>2011</date>
-			<text />
-		</item>
-		<item>
-			<title>Best Surfer</title>
-			<subtitle>Mavericks Beach Club</subtitle>
-			<date>2011</date>
-			<text />
-		</item>
+	<section title="recognition" type="grouped-list">
+		<group title="Work">
+			<item>
+				<title>Outstanding Synergizer</title>
+				<link>http://github.com/nickswalker</link>
+				<subtitle>Board for the Greater Synergy</subtitle>
+				<date>2012</date>
+				<text />
+			</item>
+			<item>
+				<title>Achievement in Double Speak</title>
+				<subtitle>Commission for California Culture</subtitle>
+				<date>2011</date>
+			</item>
+		</group>
+		<group title="Just Me Being Awesome">
+			<item>
+				<title>Best Surfer</title>
+				<subtitle>Mavericks Beach Club</subtitle>
+				<date>2011</date>
+				<text>If this doesn't make you want to hire me, I don't know what will.</text>
+			</item>
+		</group>
 	</section>
 	<section title="education" type="detail-list">
 		<item>
