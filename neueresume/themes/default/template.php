@@ -6,7 +6,7 @@
 	<title><?php echo $bio['name'];?> | <?php echo $bio['email'];?></title>
 	<meta name="description" content="<?php echo $bio['name'];?>'s resume." />
 	<link rel="stylesheet"  href="<?php echo $this->getThemeURL();?>resume.css" media="all" />
-	<!-- <link href='http://fonts.googleapis.com/css?family=Arvo:400italic,700|Merriweather:300,300italic,400,400italic,700,700italic|Merriweather+Sans:300,300italic,400italic,400,700,700italic' rel='stylesheet' > -->
+	<link href='http://fonts.googleapis.com/css?family=Arvo:400italic,700|Merriweather:300,300italic,400,400italic,700,700italic|Merriweather+Sans:300,300italic,400italic,400,700,700italic' rel='stylesheet' >
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
 	<?php 
 	if( file_exists('custom-style.css') ){
