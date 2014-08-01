@@ -1,7 +1,6 @@
 <?php
-/* Specific Theme Settings */
 
-$this->settings['theme']['sectionFormat'] = '
+$sectionFormat = '
 <section class="{{Type}} {{Title}}">
 	<div class="left">
 		<h2>{{Title}}</h2>
@@ -11,10 +10,10 @@ $this->settings['theme']['sectionFormat'] = '
 	</div>
 </section>
 ';
-$this->settings['theme']['listItemFormat'] = '
+$listItemFormat = '
 <li >{{Text}}</li>
 ';
-$this->settings['theme']['highlightListItemFormat'] = '
+$highlightListItemFormat = '
 <article >
 	<hgroup>
 		<h2 >{{Title}}</h2><a class="ion-link"href="{{Link}}"><a class="ion-image" href="{{ImagePath}}"></a>
@@ -24,4 +23,11 @@ $this->settings['theme']['highlightListItemFormat'] = '
 	<p>{{Text}}</p>
 </article>
 ';
-?>
+
+return array(
+	'theme' => array(
+		'sectionFormat' => $sectionFormat,
+		'listItemFormat' => $listItemFormat,
+		'highlightListItemFormat' => $highlightListItemFormat
+	)
+);

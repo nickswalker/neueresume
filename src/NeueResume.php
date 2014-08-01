@@ -1,60 +1,72 @@
 <?php
+namespace Nickswalker\NeueResume;
 
-class NeueResume
-{
+class NeueResume{
 	var $settings;
 	var $vars;
+	var $resumePathFromRoot;
+	var $themePathFromRoot; //Relative from installation URL
+	var $publicPathFroomRoot; 
+	var $packagePathFromRoot; //Location of NeueResume.php
 	
-	function initialize(){
-		$this->loadVars();
+	function __construct($publicPathFromRoot, $themePathFromRoot ){
+		$this->publicPathFromRoot = $publicPathFromRoot. '/';
+		$this->packagePathFromRoot = dirname(__FILE__) . '/';
+		$this->themePathFromRoot = $themePathFromRoot .'/';
+		$this->vars['version'] = '1.2';
+
+		$this->startTimer();
+
+		$this->loadSettings();
 	
-		//Debug Mode
-		if ($this->settings['advanced']['debug_mode'] == true)
-		{
-			error_reporting(E_ALL);
-			ini_set('display_errors', '1');
+		
+	}
+	function loadSettings() {
+	
+		$this->settings = include( $this->packagePathFromRoot .'settings.php');
+		$themeSettingsPath = $this->themePathFromRoot . 'settings.php';
+		if ( is_file($themeSettingsPath) ){
+			$themeSettings = include( $themeSettingsPath );
+			$this->settings = array_replace_recursive($this->settings, $themeSettings);
 		}
+	}
+
+	function display(){
+		if (!is_file($this->resumePathFromRoot)){ echo "Your resume.xml couldn't be loaded! Check your path."; return false; }
+		
+		$resume_xml = simplexml_load_file($this->resumePathFromRoot);
+		foreach ($resume_xml->bio->children() as $name=>$value){
+			$this->vars['bio'][$name] = (string)$value;
+		}
+		$this->vars['bio']['social'] =  $resume_xml->bio->social;
+		foreach($resume_xml->bio->social->children() as $name=>$value){
+			$this->vars['bio']['social'][$name] = (string)$value;
+		}
+		
 		$bio = $this->vars['bio'];
 		$social = $this->vars['bio']['social'];
 		$settings = $this->settings;
-		require('neueresume/themes/' . $this->settings['general']['theme'] . '/template.php');
-
-		if ($this->settings['advanced']['debug_show_all'] == true)
-		{
+		require $this->themePathFromRoot . '/template.php';
+		
+		//Debug Mode
+		if ($this->settings['advanced']['debug']){
+			error_reporting(E_ALL);
+			ini_set('display_errors', '1');
 			echo "DEBUG - Page Variables: <br><br>";
 			echo "<pre>";
 			print_r($this->vars);
 			echo "</pre>";
+			echo "DEBUG - Settings: <br><br>";
+			echo "<pre>";
+			print_r($this->settings);
+			echo "</pre>";
 		}
 	}
-	function loadSettings() {
-		if ( is_file('neueresume/settings.php') ){
-			require('neueresume/settings.php');
-		}
-
-		if (is_file('neueresume/themes/' . $this->settings['general']['theme'] . '/settings.php')){
-			require('neueresume/themes/' . $this->settings['general']['theme'] . '/settings.php');
-			return true;
-		}
-	}
-	function loadVars()	{
-		if (file_exists('resume.xml')) {
-			$resume_xml = simplexml_load_file('resume.xml');
-			foreach ($resume_xml->bio->children() as $name=>$value){
-				$this->vars['bio'][$name] = (string)$value;
-			}
-			$this->vars['bio']['social'] =  $resume_xml->bio->social;
-			foreach($resume_xml->bio->social->children() as $name=>$value){
-				$this->vars['bio']['social'][$name] = (string)$value;
-			}
-		}
-	}
-
 	//Parses XML and delegates to functions to return processed HTML
-	function showResume(){
+	function showSections(){
 		$sectionFormat = $this->settings['theme']['sectionFormat'];
-		if (file_exists('resume.xml')) {
-			$resume_xml = simplexml_load_file('resume.xml');
+		if (file_exists($this->resumePathFromRoot)) {
+			$resume_xml = simplexml_load_file($this->resumePathFromRoot);
 
 
 			foreach ($resume_xml->section as $section) {
@@ -88,7 +100,9 @@ class NeueResume
 					break;
 
 				}
-					$search = array(
+				
+	
+				$search = array(
 					'{{Title}}',
 					'{{Type}}',
 					'{{SectionContent}}'
@@ -98,7 +112,6 @@ class NeueResume
 					$section_info['type'],
 					$temp_section_content
 				);
-
 				echo str_replace($search, $replace, $sectionFormat);
 
 
@@ -199,7 +212,16 @@ class NeueResume
 		return $returnString;
 	}
 	function getThemeURL(){
-		return 'neueresume/themes/' . $this->settings['general']['theme'] . '/';
+		//We stipulate that the theme path must be public.
+		//Thus, we remove the installation path from the theme path and we are left
+		//with a relative path to the theme.
+		
+		// publicPathFromRoot  home/www/public_html/
+		// themePathFromRoot   home/www/public_html/resume/themes/default
+		// result			   					    resume/themes/default
+		
+		//Just add a slash to the front and you're set!
+		return '/'. str_replace($this->publicPathFromRoot, '', $this->themePathFromRoot);
 	}
 	//Debug and plumbing
 
@@ -246,10 +268,10 @@ class NeueResume
 
 
 	}
-
-}
-
-//This is a convenience polyfill until PHP6
+	//This is a convenience polyfill until PHP6
 function issetor(&$var, $default = false) {
 	return isset($var) ? $var : $default;
 }
+
+}
+

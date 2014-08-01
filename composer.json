@@ -1,0 +1,26 @@
+{
+    "name":             "nickswalker/neueresume",
+    "description":      "Simple, powerful, XML based resume solution.",
+    "keywords":         ["resume", "XML", "template", "theme"],
+    "homepage":         "http://github.com/nickswalker/neueresume",
+    "time":             "2014-08-01",
+    "license":          "MIT",
+    "authors": [
+        {
+            "name":         "Nick Walker",
+            "email":        "nick@nickwalker.us",
+            "homepage":     "http://nickwalker.us",
+            "role":         "Creator"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+    	"file":{},
+	    "psr-4": {
+	        "Nickswalker\\NeueResume\\": "src/"
+	    }
+	}
+}

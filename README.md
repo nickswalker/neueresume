@@ -17,10 +17,35 @@ Features
 Installation
 ------
 
-Just unzip the download into any directory on a PHP 5.2 or above enabled server and you'll be up and running. See the sections below for guidance about writing your resume content and how to customize the installation.
+####With Composer
+
+Add `nickswalker/neueresume` to your `composer.json`'s require section. You should have access to `\Nickswalker\NeueResume\NeueResmue`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml. Then set the path properties. Here's a base implementation that will function for an installation at the root of a server.
+
+````php
+require 'vendor/autoload.php';
+
+$publicFromRoot = realpath('.'); //Where is the directory that shows up when you go to the root of your site?
+								 // http://example.com/  might be located at /home/public_html/ on the server.
+									
+$themePathFromRoot = realpath('themes/default'); //Where is your theme?
+												 //Note that the theme MUST be in a publicly accesible directory!
+												 //Otherwise your CSS won't load :(
+
+$neueresume = new \Nickswalker\NeueResume\NeueResume($publicFromRoot, $themePathFromRoot);
+$neueresume->resumePathFromRoot = realpath('resume.xml');
+
+$neueresume->display();
+````
+
+You will need to move the resume.xml and the themes folder from the `vendor` directory where composer puts them into wherever you want to keep them, otherwise updating using `composer update` will overwrite the files. Note that the theme directory *must* be publicly accessible on your server. Modify the the paths in the code used to bootstrap accordingly.
+
+####Without Composer
+
+Go to the releases tab above and download the archive of the latest release. Dowloading the source straight from GitHub *will not work*. Unzip any it into your desired install location on a server running PHP 5.3 or above enabled server and you'll be up and running.
 
 Usage
 ------
+
 ####Adding Resume Content
 
 Take a look at the included example `resume.xml` file. You'll discover that it's 100% human-readable and fairly self explanatory. The `bio` tag and its nodes are exactly what they sound like, but the section nodes that follow merit some explanation.
@@ -136,11 +161,7 @@ Good for a mission statement or an objective. No child nodes.
 Settings
 ------
 
-Within the `neueresume` directory, you'll find `settings.php`. Here you can configure a handful
-of settings, which are listed below. Any setting can be set in either the root `settings.php` or a settings file at the
-root of a theme (though some are more useful in one place than the other). All of these functions 
-are part of the NeueResume class under the settings object and can be accessed in theme files with 
-`$this->settings` as a prefix.
+Within your theme's directory you'll find a `settings.php` file which selectively overides settings in the root settings file located in the src folder. Do not tweak settings in the root file because all changes will be overwritten during updates.
 
 Theming
 ------
@@ -155,19 +176,27 @@ The default theme is an example of how flexible NeueResume is. That being said, 
 
 #####Getting Started
 
-Create a folder in the themes directory. Name it as you please and then set `$this->settings['general']['theme']` in the root `settings.php` file to the name of your theme. Create a `settings.php` and a `template.php` file in your theme's directory and you're in business.
+Create a folder in the themes directory. Name it as you please. Create a `settings.php` and a `template.php` file in your theme's directory and you're in business.
 
 #####Changing List Formatting
 
-You can overide the HTML structure that NeueResume puts XML elements into setting the following variables in your theme's `settings.php` file:
+You can overide the HTML structure that NeueResume puts XML elements into by setting the following indexes in the settings array:
 
 ````php
-$this->settings['theme']['listItemFormat']
-$this->settings['theme']['detailListItemFormat']
-$this->settings['theme']['groupedListGroupFormat']
-$this->settings['theme']['highlightListItemFormat']
+return array(
+    'theme' => array(
+    
+    	'sectionFormat' => $sectionFormat,
+    	'listItemFormat' => $listItemFormat,
+    	'detailListItemFormat' => $detailListItemFormat,
+    	'highlightListItemFormat' => $highlightListItemFormat,
+    	'groupedListGroupFormat' => $groupedListGroupFormat
+
+    )
+
+);
 ````
-The default string for the `highlightListItemFormat` (which can be found in the root `settings.php` file) looks like this:
+Note that you can override _any_ settings within this file (or even make up some of your own, which will become accessible through the `$settings` variable passed into your template when it is processed). The default string for the `highlightListItemFormat` index (which can be found in the root `settings.php` file) looks like this:
 
 ````html
 <article>
@@ -196,17 +225,20 @@ $this->settings['theme']['sectionFormat'] = '
 </section>
 ';
 
+
 ````
 
 #####Change Page Structure
 
-The `Template.php` in your theme's folder is where you can change the page as a whole. Treat it like an HTML file from which you can call into PHP for some important variables. `<?php $this->showResume();?>` will output the processed `section` nodes in the same order that they were specified in XML. You have access to the children of `<bio` as strings in `$bio`. So, for instance, you might specify the page title like this:
+The `template.php` in your theme's folder is where you can change the page as a whole. Treat it like an HTML file from which you can call into PHP for some important variables. `<?php $this->showResume();?>` will output the processed `section` nodes in the same order that they were specified in XML. You have access to the children of `<bio>` as strings in `$bio`. So, for instance, you might specify the page title like this:
 
 ````html
 <title><?php echo $bio['name'];?> | <?php echo $bio['email'];?></title>
 ````
 
 You also have access to any settings you've specified through `$settings`.
+
+To display the sections of your resume, call `$this->displaySections()`. All `section` nodes in your resume.xml will be parsed using the formats you've specified and printed out.
 
 
 Issues
