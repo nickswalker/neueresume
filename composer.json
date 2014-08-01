@@ -18,7 +18,6 @@
     },
     "minimum-stability": "dev",
     "autoload": {
-    	"file":{},
 	    "psr-4": {
 	        "Nickswalker\\NeueResume\\": "src/"
 	    }
