@@ -17,9 +17,9 @@ Features
 Installation
 ------
 
-####With Composer
+###With Composer
 
-Add `nickswalker/neueresume` to your `composer.json`'s require section. You should have access to `\Nickswalker\NeueResume\NeueResmue`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml. Then set the path properties. Here's a base implementation that will function for an installation at the root of a server.
+Add `nickswalker/neueresume` to your `composer.json`'s require section. Run `composer update`. You should now have access to `\Nickswalker\NeueResume\NeueResmue`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml. Then set the path properties. Here's a base implementation that will function for an installation at the root of a server.
 
 ````php
 require 'vendor/autoload.php';
@@ -37,16 +37,16 @@ $neueresume->resumePathFromRoot = realpath('resume.xml');
 $neueresume->display();
 ````
 
-You will need to move the resume.xml and the themes folder from the `vendor` directory where composer puts them into wherever you want to keep them, otherwise updating using `composer update` will overwrite the files. Note that the theme directory *must* be publicly accessible on your server. Modify the the paths in the code used to bootstrap accordingly.
+You will need to move the index.php, resume.xml, themes folder, and the images folder from the `vendor` directory where composer puts them into wherever you want to make your resume available, otherwise updating using `composer update` will overwrite the files. Note that the theme directory *must* be publicly accessible on your server. Modify the the paths in the index.php with your changes.
 
-####Without Composer
+###Without Composer
 
 Go to the releases tab above and download the archive of the latest release. Dowloading the source straight from GitHub *will not work*. Unzip any it into your desired install location on a server running PHP 5.3 or above enabled server and you'll be up and running.
 
 Usage
 ------
 
-####Adding Resume Content
+###Adding Resume Content
 
 Take a look at the included example `resume.xml` file. You'll discover that it's 100% human-readable and fairly self explanatory. The `bio` tag and its nodes are exactly what they sound like, but the section nodes that follow merit some explanation.
 
@@ -79,7 +79,7 @@ A /little/ more information than a regular old list. Has `item` child nodes. `it
 		<link>http://synergy.dev</link>
 		<subtitle>Board for the Greater Synergy</subtitle>
 		<date>2015</date>
-		<text>Hard to get.</text
+		<text>Hard to get.</text>
 	</item>
 	<item>
 		<title>Achievement in Double Speak</title>
@@ -166,19 +166,19 @@ Within your theme's directory you'll find a `settings.php` file which selectivel
 Theming
 ------
 
-####"I just want to tweak some things"
+###"I just want to tweak some things"
 
 Easy! Add a `custom-style.css` file to the same folder where your `resume.xml` lives and your styles will be loaded automatically.
 
-####"I want to write an entirely custom theme"
+###"I want to write an entirely custom theme"
 
 The default theme is an example of how flexible NeueResume is. That being said, the aim of project is to be as light weight as possible, and this means forgoing any dependencies, including a templating engine. The built in parsing and templating are not as robust as many PHP frameworks that are dedicated to that purpose, but they are /decent/.
 
-#####Getting Started
+####Getting Started
 
 Create a folder in the themes directory. Name it as you please. Create a `settings.php` and a `template.php` file in your theme's directory and you're in business.
 
-#####Changing List Formatting
+####Changing List Formatting
 
 You can overide the HTML structure that NeueResume puts XML elements into by setting the following indexes in the settings array:
 
@@ -228,7 +228,7 @@ $this->settings['theme']['sectionFormat'] = '
 
 ````
 
-#####Change Page Structure
+####Change Page Structure
 
 The `template.php` in your theme's folder is where you can change the page as a whole. Treat it like an HTML file from which you can call into PHP for some important variables. `<?php $this->showResume();?>` will output the processed `section` nodes in the same order that they were specified in XML. You have access to the children of `<bio>` as strings in `$bio`. So, for instance, you might specify the page title like this:
 
