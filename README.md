@@ -19,20 +19,19 @@ Installation
 
 ###With Composer
 
-Add `nickswalker/neueresume` to your `composer.json`'s require section. Run `composer update`. You should now have access to `\Nickswalker\NeueResume\NeueResmue`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml. Then set the path properties. Here's a base implementation that will function for an installation at the root of a server.
+Add `nickswalker/neueresume` to your `composer.json`'s require section. Run `composer update`. You should now have access to `\Nickswalker\NeueResume\NeueResmue`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml and the complete path to your theme. Here's a base implementation that will function for an installation at the root of a server.
 
 ````php
 require 'vendor/autoload.php';
 
-$publicFromRoot = realpath('.'); //Where is the directory that shows up when you go to the root of your site?
-								 // http://example.com/  might be located at /home/public_html/ on the server.
 									
 $themePathFromRoot = realpath('themes/default'); //Where is your theme?
 												 //Note that the theme MUST be in a publicly accesible directory!
 												 //Otherwise your CSS won't load :(
+$resumePathFromRoot = realpath('resume.xml');
 
-$neueresume = new \Nickswalker\NeueResume\NeueResume($publicFromRoot, $themePathFromRoot);
-$neueresume->resumePathFromRoot = realpath('resume.xml');
+$neueresume = new \Nickswalker\NeueResume\NeueResume($resumePathFromRoot, $themePathFromRoot);
+
 
 $neueresume->display();
 ````
@@ -147,6 +146,19 @@ Additionally, a special feature of the highlight list is the ability to add arbi
 	]]>
 </item>
 ````
+
+#####Arbitrary
+
+If you'd like full control over a certain section, maybe you want to put a big bar of links to your portfolios or something, you can dump arbitrary content into a section using the `arbitrary` section type. If you include HTML, wrap it in CDATA tags.
+
+````xml
+<section title="links" type="arbitrary">
+	<![CDATA[ 
+		<a href="/gallery" class="full-work"> View my photography portfolio.</a>
+	]]>
+</section>
+````
+The section will not be processed using the theme's defined section format.
 
 #####Text
 

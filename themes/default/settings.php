@@ -10,11 +10,9 @@ $sectionFormat = '
 	</div>
 </section>
 ';
-$listItemFormat = '
-<li >{{Text}}</li>
-';
+
 $highlightListItemFormat = '
-<article >
+<article>
 	<hgroup>
 		<h2 >{{Title}}</h2><a class="ion-link"href="{{Link}}"><a class="ion-image" href="{{ImagePath}}"></a>
 		<h3>{{SubTitle}}</h3>
@@ -27,7 +25,6 @@ $highlightListItemFormat = '
 return array(
 	'theme' => array(
 		'sectionFormat' => $sectionFormat,
-		'listItemFormat' => $listItemFormat,
 		'highlightListItemFormat' => $highlightListItemFormat
 	),
 	'advanced' => array(

@@ -5,15 +5,16 @@ class NeueResume{
 	var $settings;
 	var $vars;
 	var $resumePathFromRoot;
-	var $themePathFromRoot; //Relative from installation URL
+	var $themePathFromRoot;
 	var $publicPathFroomRoot; 
 	var $packagePathFromRoot; //Location of NeueResume.php
 	
-	function __construct($publicPathFromRoot, $themePathFromRoot ){
-		$this->publicPathFromRoot = $publicPathFromRoot. '/';
+	function __construct($resumePathFromRoot, $themePathFromRoot ){
+		$this->resumePathFromRoot = $resumePathFromRoot;
+		$this->publicPathFromRoot = $_SERVER['DOCUMENT_ROOT']. '/';
 		$this->packagePathFromRoot = dirname(__FILE__) . '/';
 		$this->themePathFromRoot = $themePathFromRoot .'/';
-		$this->vars['version'] = '1.2';
+		$this->vars['version'] = '1.2.2';
 
 		$this->startTimer();
 
@@ -72,15 +73,13 @@ class NeueResume{
 			foreach ($resume_xml->section as $section) {
 
 				//Each section must have a title and type
-				$section_info['title'] = (string)$section['title'];
-				$section_info['type'] = (string)$section['type'];
 
 				$temp_section_content ='';
 
-				switch($section_info['type']) {
+				switch($section['type']) {
 				
 				case 'arbitrary':
-					echo ('<section class="'. $section_info['title']. $section_info['type'].'">'.$section.'</section>');
+					echo ('<section class="'. $section['title']. ' ' . $section['type'].'">'.$section.'</section>');
 					/* Skip to the end current switch loop, then skip the end of the whole foreach to avoid printing anything else */
 					continue 2;
 				case 'grouped-list':
@@ -95,21 +94,20 @@ class NeueResume{
 				case 'highlight-list':
 					$temp_section_content = $this->makeHighlightListSection($section);
 					break;
-				default :
+				default:
 					$temp_section_content .= (string)$section;
 					break;
 
 				}
 				
-	
 				$search = array(
 					'{{Title}}',
 					'{{Type}}',
 					'{{SectionContent}}'
 				);
 				$replace = array(
-					$section_info['title'],
-					$section_info['type'],
+					$section['title'],
+					$section['type'],
 					$temp_section_content
 				);
 				echo str_replace($search, $replace, $sectionFormat);
@@ -141,7 +139,7 @@ class NeueResume{
 	}
 	function makeDetailListSection($section){
 		$detailListItemFormat= $this->settings['theme']['detailListItemFormat'];
-		$returnString = '';
+		$returnString = '<ul>';
 		foreach ($section->item as $item) {
 			$search = array(
 				'{{Title}}',
@@ -158,6 +156,26 @@ class NeueResume{
 				(string)$item->text
 			);
 			$returnString .= str_replace($search, $replace, $detailListItemFormat);
+		};
+		return $returnString . "</ul>";
+	}
+	function makeGroupedListSection($section){	
+		$groupedListGroupFormat= $this->settings['theme']['groupedListGroupFormat'];
+		$returnString = '';
+		foreach ($section->group as $group) {
+			//For each group in this section grab all item children into a string
+			$temp_group_content = $this->makeDetailListSection($group);
+			$group_info['title'] = (string)$group['title'];
+			$search = array(
+				'{{Title}}',
+				'{{Group}}'
+			);
+			$replace = array(
+				$group_info['title'],
+				$temp_group_content
+			);
+
+			$returnString .= str_replace($search, $replace, $groupedListGroupFormat);
 		};
 		return $returnString;
 	}
@@ -188,26 +206,6 @@ class NeueResume{
 				$returnString .= str_replace($search, $replace, $highlightListItemFormat);
 			}
 			
-		};
-		return $returnString;
-	}
-	function makeGroupedListSection($section){	
-		$groupedListGroupFormat= $this->settings['theme']['groupedListGroupFormat'];
-		$returnString = '';
-		foreach ($section->group as $group) {
-			//For each group in this section grab all item children into a string
-			$temp_group_content = $this->makeDetailListSection($group);
-			$group_info['title'] = (string)$group['title'];
-			$search = array(
-				'{{Title}}',
-				'{{Group}}'
-			);
-			$replace = array(
-				$group_info['title'],
-				$temp_group_content
-			);
-
-			$returnString .= str_replace($search, $replace, $groupedListGroupFormat);
 		};
 		return $returnString;
 	}

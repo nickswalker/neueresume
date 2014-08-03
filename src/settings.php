@@ -1,6 +1,7 @@
 <?php
 
-$sectionFormat = '<section class="{{Type}} {{Title}}">
+$sectionFormat = '
+<section class="{{Type}} {{Title}}">
 	<div class="left">
 		<h2>{{Title}}</h2>
 	</div>
@@ -10,17 +11,17 @@ $sectionFormat = '<section class="{{Type}} {{Title}}">
 </section>
 ';
 $listItemFormat = '
-<li >{{Text}}</li>
+<li>{{Text}}</li>
 ';
 
 $detailListItemFormat = '
-<li title="{{Text}}"><span>{{Title}}</span><a class="icon-link .btn button"href="{{Link}}"></a> <time>{{Date}}</time></li>
+<li title="{{Text}}"><span>{{Title}}</span><a class="icon-link" href="{{Link}}"></a> <time>{{Date}}</time></li>
 ';
 
 $highlightListItemFormat = '
 <article>
 	<hgroup>
-		<h2 >{{Title}}</h2><a class="icon-link"href="{{Link}}"><a class="icon-picture" href="{{ImagePath}}"></a>
+		<h2>{{Title}}</h2><a class="icon-link" href="{{Link}}"><a class="icon-picture" href="{{ImagePath}}"></a>
 		<h3>{{SubTitle}}</h3>
 		<h4>{{Date}}</h4>
 	</hgroup>
@@ -30,9 +31,9 @@ $highlightListItemFormat = '
 
 $groupedListGroupFormat ="
 	<h3>{{Title}}</h3>
-		<ul>{{Group}}</ul>
+		{{Group}}
 		";
-
+//Each `Group` will be processed like a detail-list
 
 return array(
     'general' => array(
@@ -49,7 +50,7 @@ return array(
     ),
 
 	'advanced' => array(
-		'debug' => 'false'
+		'debug' => false
 	)
 
 );

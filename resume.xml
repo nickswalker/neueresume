@@ -2,7 +2,7 @@
 <resume>
 	<bio>
 		<name>John Doe</name>
-		<job-title>Developer</job-title>
+		<job-title>Marketing Engineer</job-title>
 		<email>john@johndoe.com</email>
 		<site>johndoe.com</site>
 		<street-address></street-address>
@@ -11,7 +11,8 @@
 			<tumblr>http://blog.nickwalker.us</tumblr>
 			<facebook>http://facebook.com/nick.walker</facebook>
 		<!--<instagram></instagram>
-			<google-plus></google-plus>
+			<googleplus></googleplus>
+			<dribble></dribble>
 			<twitter></twitter>
 			<vimeo></vimeo>-->
 		</social>

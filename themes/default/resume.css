@@ -243,7 +243,7 @@ button:hover {
 }
 /* = List
 -------------------------------------------------------------- */
-.skills ul {
+.list ul {
 	-webkit-column-count:3;
 	-moz-column-count:3;
 	-webkit-column-gap:20px;
@@ -251,16 +251,51 @@ button:hover {
 	column-gap:20px;
 }
 
-.skills li {
+.list li {
 	overflow:hidden;
 	text-overflow:ellipsis;
 }
 
-.list li {
+
+/* = Detail List and Grouped List
+-------------------------------------------------------------- */
+
+.detail-list ul,
+.grouped-list ul{
+	list-style: none;
+}
+.detail-list li,
+.grouped-list li	{
+	display: block;
+}
+.detail-list time,
+.grouped-list time	{
+	float: right;
 }
 
-/* = Detail List
+/* = Grouped List
+-------------------------------------------------------------- */	
+
+.grouped-list ul	{
+	margin-left: 24px;
+}
+
+.grouped-list h3	{
+	text-transform: capitalize;
+	font-weight: 600;
+}
+
+
+/* = Recognition
 -------------------------------------------------------------- */
+
+.recognition span	{
+	font-style: italic; /* Award names should be italicized*/
+}
+
+/* = Highlight List
+-------------------------------------------------------------- */
+
 article {
 	position:relative;
 	margin-bottom:1rem;
@@ -288,57 +323,6 @@ article h4 {
 article p {
 	margin:0;
 }
-
-.detail-list article h2	{
-	font-size: 14px;
-	float: left;
-}
-.detail-list article h3	{
-	font-size: 14px;
-	float: left;
-	clear: none;
-	font-weight: 300;
-	margin-left: 20px;
-	font-style: italic;
-}
-.detail-list article p	{
-	clear: both;
-	font-size: 14px;
-}
-.detail-list article hgroup	{
-	margin-bottom: 10px;
-	clear: both;
-	overflow: auto;
-}
-
-
-/* = Grouped List
--------------------------------------------------------------- */	
-
-.grouped-list ul	{
-	list-style: none;
-	margin-left: 24px;
-
-}
-.grouped-list .button	{
-	float: none;
-}
-.grouped-list li	{
-	display: block;
-}
-.grouped-list span	{
-	font-style: italic;
-}
-.grouped-list time	{
-	float: right;
-}
-.grouped-list h3	{
-	text-transform: capitalize;
-	font-weight: 600;
-}
-
-/* = Highlight List
--------------------------------------------------------------- */
 article a[href=''] {
 	display:none!important;
 }
