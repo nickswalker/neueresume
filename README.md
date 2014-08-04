@@ -19,7 +19,7 @@ Installation
 
 ###With Composer
 
-Add `nickswalker/neueresume` to your `composer.json`'s require section. Run `composer update`. You should now have access to `\Nickswalker\NeueResume\NeueResmue`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml and the complete path to your theme. Here's a base implementation that will function for an installation at the root of a server.
+Add `nickswalker/neueresume` to your `composer.json`'s require section. Run `composer update`. You should now have access to `\Nickswalker\NeueResume\NeueResume`, the main class of the project. Construct a NeueResume object with a complete path to your resume.xml and the complete path to your theme. Here's a base implementation that will function for an installation at the root of a server.
 
 ````php
 require 'vendor/autoload.php';
@@ -40,7 +40,7 @@ You will need to move the index.php, resume.xml, themes folder, and the images f
 
 ###Without Composer
 
-Go to the releases tab above and download the archive of the latest release. Dowloading the source straight from GitHub *will not work*. Unzip any it into your desired install location on a server running PHP 5.3 or above enabled server and you'll be up and running.
+Go to the releases tab above and download the archive of the latest release. Dowloading the source straight from GitHub *will not work* beacause it won't include a vendor directory and the composer autoload files. Unzip it into your desired install location on a server running PHP 5.3 or above enabled server and you'll be up and running.
 
 Usage
 ------
