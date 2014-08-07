@@ -55,6 +55,7 @@ a {
 
 /* = Core Structure
 -------------------------------------------------------------- */
+
 body {
 	color:#444;
 	width:950px;
@@ -355,9 +356,18 @@ article hgroup a {
 
 /* = Print
 -------------------------------------------------------------- */
+@page {
+  margin:.75in;
+}
+
 @media print {
 	body{
 		font-family: 'Merriweather', serif;
+		padding: .05in;
+		color: black;
+	}
+	body *{
+		color: black !important;
 	}
 	section, header	{
 		margin-bottom: 8px;
@@ -403,6 +413,7 @@ article hgroup a {
 	}
 	.plate h1	{
 		font-size: 36px;
+		color: black;
 	}
 	.plate h2{
 		font-size: 1rem;
@@ -410,5 +421,14 @@ article hgroup a {
 	.right-plate .contact-info{
 		float: right;
 		text-align: right;
+	}
+	section	{
+		page-break-inside:avoid;
+	}
+	section.grouped-list	{
+		page-break-inside:auto;
+	}
+	section.grouped-list ul	{
+		page-break-inside:avoid;
 	}
 }
