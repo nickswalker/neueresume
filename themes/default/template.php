@@ -9,8 +9,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Arvo:700|Merriweather:400,400italic,700,700italic|Merriweather+Sans:400italic,400,700,700italic' rel='stylesheet' >
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
 	<?php 
-	if( file_exists( 'custom-style.css') ){
-		echo ('<link rel="stylesheet" href="custom-style.css">');
+	if( file_exists( $this->themePathFromRoot.'/custom-style.css') ){
+		echo ('<link rel="stylesheet" href="'.$this->getThemeURL() .'custom-style.css">');
 	}?>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
