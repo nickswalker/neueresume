@@ -57,7 +57,7 @@ A `section` node has a title and a type attribute. The title can be whatever you
 
 #####List
 
-The simplest section type. It has `item` child nodes. The `item` nodes have no childen and their content becomes the bulleted text.
+The simplest section type. It has `item` child nodes. The `item` nodes have no children and their content becomes the bulleted text.
 
 ````xml
 <section title="skills" type="list">
